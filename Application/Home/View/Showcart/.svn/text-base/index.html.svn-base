@@ -1,0 +1,469 @@
+<extend name="Index:default" />
+<block name="header"><div class="ic_header hide"></block>
+<block name="nav"><div class="ic_nav hide" id="j_nav"></block>
+<block name="footer"><div class="ic_footer hide"></block>
+<block name="cate_css"><div class="mod_cate mod_cate_on" id="category_container"></block>
+<block name="stylecss">
+	<link rel="stylesheet" href="showcart_files/gb_002.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="showcart_files/gb.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="showcart_files/cart_v2.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/gb1.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/style1.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/cart_v2.css" type="text/css" media="screen">
+</block>
+<block name="privatejs">
+	<script type="text/javascript" src="__PUBLIC__/home/js/area.js" ></script>
+	<script type="text/javascript">
+		// 数值加
+		$('.ct_num_ctrl_jia').on('click',function(){
+			$(this).parent().children('input').val(parseInt($(this).parent().children('input').val())+1);
+			if ($(this).parent().children('input').val() > 1) {
+				$(this).parent().children().eq(0).removeClass('ct_num_ctrl_disable');
+			}
+		})
+		// 数值减
+		$('.ct_num_ctrl_jian').on('click',function(){
+			$(this).parent().children('input').val(parseInt($(this).parent().children('input').val())-1);
+			if ($(this).parent().children('input').val() < 2) {
+				$(this).parent().children().eq(0).addClass('ct_num_ctrl_disable');
+				$(this).parent().children('input').val(1);
+			}
+			if ($(this).parent().children('input').val() > 1) {
+				$(this).parent().children().eq(0).removeClass('ct_num_ctrl_disable');
+			}
+		})
+		// ajax按钮点击事件
+		$('.col4 a').on('click',function(){
+			// 获取存在于购物车中的gid
+			var gid = $(this).parent().parent().parent().children().eq(0).children('input').val();
+			// 获取数量
+			var nums = $(this).parent().children('input').val();
+			// 获取单价
+			var buyprice = $("#buyprice").val();
+			$.ajax({
+				url:'__CONTROLLER__/cartNums',
+				type:'post',
+				data:{gid:gid,nums:nums,price:buyprice},
+				success:function(data){
+					if (data == 1) {
+						// 循环计算每一个订单的价格
+						var price = 0;
+						for (var i = 0; i < $('.col4 input').length; i++) {
+							price = parseInt($('.col4 input').eq(i).val())*unitprice[i];
+							// alert(price);
+							$('.ct_goods_price span').eq(i).html(price);
+						};
+						// 商品价格计算
+						// 初始商品价格为0
+						var totalprice = 0;
+						// 循环计算已选商品的总价格
+						for (var i = 0; i < $('.ct_goods_price span').length; i++) {
+							totalprice += parseInt($('.ct_goods_price span').eq(i).html());
+						}
+						$('#totalPrice').html(totalprice+'.00');
+						$('#totalPay').html(totalprice+'.00');
+					}
+				}
+			});
+		});
+		// ajax直接修改事件
+		$('.ct_num_ctrl_input').on('change',function(){
+			// alert(1);
+			// 获取存在于购物车中的gid
+			var gid = $(this).parent().parent().parent().children().eq(0).children('input').val();
+			// 获取数量
+			var nums = $(this).parent().children('input').val();
+			var buyprice = $("#buyprice").val();
+			if (nums < 2) {
+				$(this).val(1);
+				nums = 1;
+				$(this).parent().children().eq(0).addClass('ct_num_ctrl_disable');
+			}
+			if (nums > 1) {
+				$(this).parent().children().eq(0).removeClass('ct_num_ctrl_disable');
+			}
+			$.ajax({
+				url:'__CONTROLLER__/cartNums',
+				type:'post',
+				data:{gid:gid,nums:nums,price:buyprice},
+				success:function(data){
+					if (data == 1) {
+						// 循环计算每一个订单的价格
+						var price = 0;
+						for (var i = 0; i < $('.col4 input').length; i++) {
+							price = parseInt($('.col4 input').eq(i).val())*unitprice[i];
+							// alert(price);
+							$('.ct_goods_price span').eq(i).html(price);
+						};
+						// 商品价格计算
+						// 初始商品价格为0
+						var totalprice = 0;
+						// 循环计算已选商品的总价格
+						for (var i = 0; i < $('.ct_goods_price span').length; i++) {
+							totalprice += parseInt($('.ct_goods_price span').eq(i).html());
+						}
+						$('#totalPrice').html(totalprice+'.00');
+						$('#totalPay').html(totalprice+'.00');
+					}
+				}
+			});
+		});
+		// 循环计算每一个订单的价格
+		var unitprice = [];
+		var price = 0;
+		for (var i = 0; i < $('.col4 input').length; i++) {
+			unitprice[i] = parseInt($('.ct_goods_price span').eq(i).html());
+			price = parseInt($('.col4 input').eq(i).val())*parseInt($('.ct_goods_price span').eq(i).html());
+			$('.ct_goods_price span').eq(i).html(price);
+			if (parseInt($('.col4 input').eq(i).val()) > 1) {
+				$('.col4 .ct_num_ctrl_jian').eq(i).removeClass('ct_num_ctrl_disable');
+			}
+		}
+		// 商品价格计算
+		// 初始商品价格为0
+		var totalprice = 0;
+		// 循环计算已选商品的总价格
+		for (var i = 0; i < $('.ct_goods_price span').length; i++) {
+			totalprice += parseInt($('.ct_goods_price span').eq(i).html());
+		}
+		$('#totalPrice').html(totalprice+'.00');
+		$('#totalPay').html(totalprice+'.00');
+		// ======================================
+		// 清除，清空购物车
+		function del(gid){
+			$.ajax({
+				url:'__CONTROLLER__/delCart',
+				type:'post',
+				data:{gid:gid},
+				success:function(data){
+					if (data == 1 || data == 2) {
+						$('#gid_'+gid).remove();
+						// 商品价格计算
+						// 初始商品价格为0
+						var totalprice = 0;
+						// 循环计算已选商品的总价格
+						for (var i = 0; i < $('.ct_goods_price span').length; i++) {
+							totalprice += parseInt($('.ct_goods_price span').eq(i).html());
+						}
+						$('#totalPrice').html(totalprice+'.00');
+						$('#totalPay').html(totalprice+'.00');
+						// 如果购物车没有东西提示购物车空空
+						if ($('.ct_goods_price span').length < 1) {
+							$('#guangguang_mod').css('display','block');
+							if (data == 2) {
+								$('#guangguang_mod p').html('您的购物车暂时无任何商品，请尽快在易迅网选购商品吧！<a target="_blank" href="__APP__/home/index" class="c_tx0">随便逛逛</a>');
+							} else{
+								$('#guangguang_mod p').html('温馨提醒：您可以<a title="登录" href="__APP__/home/login/index/url/ShowCart" class="mod_btn mod_btn_bg1 mod_btn_mini c_tx0">登录</a>购物车，查看之前加入的商品，或者 <a class="c_tx0" href="__APP__/home/index">随便逛逛</a>');
+							}
+							$('#yixun_title_mod').css('display','none');
+							$('#cart_foot').css('display','none');
+						}else{
+							$('#guangguang_mod').css('display','none');
+							$('#yixun_title_mod').css('display','block');
+							$('#cart_foot').css('display','block');
+						}
+					}
+				}
+			});
+		}
+		function clearcart(){
+			$.ajax({
+				url:'__CONTROLLER__/clearCart',
+				success:function(data){
+					if (data == 1 || data == 2) {
+						$('#guangguang_mod').css('display','block');
+						if (data == 2) {
+							$('#guangguang_mod p').html('您的购物车暂时无任何商品，请尽快在易迅网选购商品吧！<a target="_blank" href="__APP__/home/index" class="c_tx0">随便逛逛</a>');
+						} else{
+							$('#guangguang_mod p').html('温馨提醒：您可以<a title="登录" href="__APP__/home/login/index/url/ShowCart" class="mod_btn mod_btn_bg1 mod_btn_mini c_tx0">登录</a>购物车，查看之前加入的商品，或者 <a class="c_tx0" href="__APP__/home/index">随便逛逛</a>');
+						}
+						$('#yixun_title_mod').css('display','none');
+						$('#cart_foot').css('display','none');
+					}
+				}
+			});
+		}
+		// 去结算按钮的判断，登陆用户可以去结算，费登陆用户跳转到登陆页面
+		$("#checkorder_btn").on('click',function(){
+			$.ajax({
+				url:'__CONTROLLER__/checkButton',
+				success:function(data){
+					if (data == 1) {
+						window.location.href="__APP__/home/Order/index";
+					}else{
+						window.location.href="__APP__/home/login/index/url/ShowCart";
+					}
+				}
+			});
+		});
+
+		// =======================================
+		// 初始化购物车没有东西提示篮子空空
+		if ($('.ct_shop_table').children().eq(0).children().length < 1) {
+			$('#guangguang_mod').css('display','block');
+			if ($('#guangguang_mod').attr('login') == 1) {
+				$('#guangguang_mod p').html('您的购物车暂时无任何商品，请尽快在易迅网选购商品吧！<a target="_blank" href="__APP__/home/index" class="c_tx0">随便逛逛</a>');
+			}
+			$('#yixun_title_mod').css('display','none');
+			$('#cart_foot').css('display','none');
+		}else{
+			if (!$('#guangguang_mod').attr('login') == 1) {
+				$('#denglu_mod').css('display','block');
+			};
+		}
+	</script>
+	<script type="text/javascript">_init_area();</script>
+	<script type="text/javascript">
+		var Gid  = document.getElementById ;
+		var showArea = function(){
+			Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" + Gid('s_city').value + " - 县/区" + Gid('s_county').value + "</h3>"
+		}
+	</script>
+</block>
+<block name="content">
+	<div class="ic_header">
+		<div class="grid_c1"> 
+			<div class="mod_logo">
+				<a href="__APP__/home/index" >
+					<img src="__PUBLIC__/home/images/logo_2013_v1.png" alt="三虾网">
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- 内容 开始 -->
+	<div id="container" class="ic_content">
+		<div class="ct grid_c1">
+			<div class="flow_step_no1 flow_cart">
+				<div class="flow_step">
+					<ol class="cols3">
+						<li class="step_1">我的购物车</li>
+						<li class="step_2">填写核对订单</li>
+						<li class="step_3">订单提交成功</li>
+					</ol>
+				</div>
+			</div>
+			<!-- 调整送货地址 开始 -->
+			<div class="ct_hd">
+				<h2 class="ct_title">我的购物车</h2>
+				<span class="ct_hd_txt1">送至 </span>
+				<!--S 地址选择组件 -->
+				<div class="select_area">
+					<div class="mod_act" id="select_area_act">
+						<div class="hd_act" id="area_show_result">
+							<div class="area_item">
+								<select id="s_province" name="s_province"></select>&nbsp;&nbsp;
+								<select id="s_city" name="s_city" ></select>&nbsp;&nbsp;
+								<select id="s_county" name="s_county"></select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--E 地址选择组件 -->
+				<div class="mod_hint ct_hd_hint">
+					<div class="mod_hint_inner">
+						<p>部分价格和库存可能因收货地址不同而改动，请以订单提交时为准</p>
+					</div>
+				</div>
+			</div>
+			<!-- 调整送货地址 结束 -->
+			<!-- 购物车列表 开始-->
+			<div class="ct_unlogin_tips" id="denglu_mod" style="display:none;">
+				您可以
+				<a class="mod_btn mod_btn_bg1 mod_btn_mini" href="__APP__/home/login/index/url/ShowCart">登录</a>
+				购物车，查看之前加入的商品
+			</div>
+			<!-- 篮子空空~去买点啥吧！ -->
+			<div login='{$login}' class="ct_goods_empty" id="guangguang_mod" style="display:none;">
+				<div class="ct_goods_empty_inner">
+					<h3>篮子空空~去买点啥吧！</h3>
+					<p>
+						温馨提醒：您可以
+						<a title="登录" href="__APP__/home/login/index/url/ShowCart" class="mod_btn mod_btn_bg1 mod_btn_mini c_tx0">登录</a>购物车，查看之前加入的商品，或者 
+						<a class="c_tx0" href="__APP__/home/index">随便逛逛</a>
+					</p>
+				</div>
+			</div>
+			<!-- S 三虾网商品 -->
+			<div style="" class="ct_shop_mod" id="yixun_title_mod">
+				<div class="ct_shop_mod_hd" id="yixun_title">
+					<h3 class="ct_shop_tit">易迅网</h3>
+				</div>
+				<div class="ct_shop_mod_bd">
+					<table class="ct_shop_table">
+						<tbody>
+						<foreach name="cartdata" item="vo">
+							<tr class="ct_goods_item " id="gid_{$vo.gid}">
+								<td class="col1">
+									<input type="hidden" value="{$vo.gid}">
+								</td>
+								<td class="col2">
+									<div class="mod_goods mod_goods_w80">
+										<div class="mod_goods_img">
+											<a target="_blank" href="" title="">	
+												<img src="__PUBLIC__/Goodsuploads/{$vo.gpic|explode='/',###|implode='/60_',###}" alt="{$vo.gname}">
+											</a>
+										</div>
+										<div class="mod_goods_info divGoodsInfo_16471">	
+											<p class="mod_goods_tit">
+												<a target="_blank" href="">{$vo.gname}</a>
+											</p>		
+										</div>
+									</div>
+								</td>
+								<td class="col3">
+									<p class="ct_unit_price">
+										三虾价：
+										<span class="mod_price ">
+											<i>¥</i><span>{$vo.goldprice}</span>
+										</span>
+									</p>
+								</td>
+								<td class="col4">
+									<div id="16471-fuceng" class="ct_num_ctrl">
+										<a href="javascript:" class="ct_num_ctrl_jian ct_num_ctrl_disable">-</a>
+										<input type="text" class="ct_num_ctrl_input"  curnum="1" multipricenumlimit="99" numlowest="1" numlimit="999" value="{$vo.nums}" id="pnum_16471">	
+										<a href="javascript:" class="ct_num_ctrl_jia">+</a>
+									</div>
+								</td>
+								<td class="col5">
+									<p class="ct_goods_price">
+										<strong class="mod_price c_tx1">
+											<input id="buyprice" type="hidden" value="{$vo.gprice}">
+											<i>¥</i><span>{$vo.gprice}</span>
+										</strong>
+									</p>
+								</td>
+								<td class="col6">
+									<p class="ct_goods_inventory">有货</p>
+								</td>
+								<td class="col7">
+									<div class="ct_goods_action_row">
+										<div class="ct_goods_action">
+											<a class="c_tx0" href="__CONTROLLER__/goodsCollection/gid/{$vo.gid}">暂存收藏夹</a>
+										</div>
+									</div>
+									<div class="ct_goods_action_row">
+										<div class="ct_goods_action">
+											<a href="javascript:del({$vo.gid})" class="c_tx0">删除</a>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</foreach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- E 三虾网商品 -->
+
+			<!-- S 网购商品 -->
+			<div style="display: none;" id="wanggou_saler"></div>
+			<!-- E 网购商品 -->
+
+			<!-- S 参加促销活动 -->
+			<div class="ct_mod" id="promotion_row" style="display:none">
+				<div class="wrap_unlogin" style="display:none"></div>
+				<div class="ct_mod_hd">
+					<h3 class="ct_mod_tit">
+						<strong class="c_tx0">您已参加以下促销活动：</strong>
+					</h3>
+					<span class="ct_mod_hd_tips">(参加促销活动不能使用优惠券，请在下一步结算订单页修改)</span>
+				</div>
+				<div class="ct_mod_bd">
+					<div id="promotion_list"></div>
+					<div class="ct_sale_row ct_sale_others clearfix" style="z-index:2" id="promotion_list_buy_more">
+						<table class="ct_sale_others_table" id="promotion_list_buy_more_table"></table>				
+					</div>
+				</div>
+			</div>
+			<!-- E 参加促销活动 -->	
+
+			<div style="display: block;" class="ct_clearing clearfix" id="cart_foot">
+				<div class="ct_clearing_col1">
+					<a href="javascript:clearcart();" ><i></i>清空购物车</a>
+				</div>
+				<div class="ct_clearing_col2">
+					<div class="ct_clearing_row">
+						<div class="ct_clearing_label">商品总价：</div>
+						<div class="ct_clearing_cnt">
+							+
+							<span class="mod_price">
+								<i>&#165;</i><span id="totalPrice">0.00</span>
+							</span>
+						</div>
+					</div>
+					<div class="ct_clearing_row">
+						<div class="ct_clearing_label">促销优惠：</div>
+						<div class="ct_clearing_cnt">
+							- 
+							<span class="mod_price c_tx1">
+								<i>&#165;</i><span id="promo_amt">0.00</span>
+							</span>
+						</div>                        
+					</div>
+					<div class="ct_clearing_row">
+						<div class="ct_clearing_label">返现金额：</div>
+						<div class="ct_clearing_cnt">
+							- 
+							<span class="mod_price c_tx1">
+								<i>&#165;</i><span id="totalDiscount">0.00</span>
+							</span>
+						</div>                        
+					</div>
+					<div class="ct_clearing_row ct_clearing_price_row">
+						<span class="c_tx3">商品总价（不含运费）：</span>
+						<strong class="ct_final_price mod_price c_tx1" id="totalPay_tips">
+							<i>&#165;</i><span id="totalPay">0.00</span>
+						</strong>
+					</div>
+					<div class="ct_clearing_btn_row clearfix">
+						<a href="javascript:;" class="ct_clearing_btn" id="checkorder_btn">去结算<u></u></a>
+						<div class="mod_hint mod_hint_weak ct_action_pop" style="display:none" id="mod_hint_fuceng">
+							<div class="mod_hint_inner">
+								对不起，暂时无法结算，<a class="c_tx0" href="http://www.yixun.com/" target="_blank" onclick="G.app.cart.gobackUrl();return false" hotname="I.CART.CONTINUESHOPPING">去查看</a>
+							</div>
+							<i class="mod_hint_arrow1"></i>
+						</div>				
+					</div>				
+				</div>
+			</div>
+			<!-- 购物车列表 结束 -->
+
+			<!-- 推荐模块 开始 -->
+			<div id="other_tuijian_wrap" style="display:none">
+				<div class="ct_mod_hd" id="always_buy_list_title" style="display:none">
+					<h3 class="ct_mod_tit">买了还买</h3>
+				</div>		
+				<div class="ct_mod_bd" hotname="I.CART.BUYRECOMMEND">
+					<ul class="ct_goods_list2 clearfix" id="always_buy_list" style="display:none"></ul>
+				</div>
+			</div>
+			<!-- 推荐模块 结束 -->
+
+			<!-- 收藏模块 开始 -->
+			<div class="ct_mod" id="favor_mod" style="display:none">
+				<div class="ct_mod_hd" id="favor_list_title" style="display:none">
+					<h3 class="ct_mod_tit">收藏夹</h3>
+				</div>		
+				<div class="ct_mod_bd" hotname="I.CART.BUYRECOMMEND">
+					<ul class="ct_goods_list2 clearfix" id="favor_list" style="display:none">
+						
+					</ul>
+				</div>
+			</div>		
+			<!-- 收藏模块 结束 -->
+		</div>
+	</div>
+	<!-- 内容 结束 -->
+	<div class="mod_backtop hide" id="j_backtop" style="display:none;">
+		<a href="javascript:" title="回顶部" ytag="72300">回顶部</a>
+	</div>
+	<div style="display: none;" class="ic_market" id="j_market">
+		<div class="grid_c1">
+			<a target="_blank" class="market_link" title="17期：送货狂想曲" href="http://gushi.yixun.com/" ytag="70000">
+				<img src="showcart_files/0.jpeg" class="market_img_1">
+			</a>
+		</div>
+	</div>
+</block>
+

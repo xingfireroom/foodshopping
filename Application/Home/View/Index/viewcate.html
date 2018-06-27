@@ -1,0 +1,15 @@
+<volist name="allclass" id="cval" key="ckey">
+    <li id="cate_{$cval['cid']}" index="{$ckey-1}" panel="true" class="mod_cate_li">
+        <div class="mod_cate_r1">
+            <h3><a target="_blank" href="__APP__/Home/search/index/cid/{$cval['cid']}" >{$cval['cname']}</a></h3>
+            <i class="mod_cate_arrow"></i>
+        </div>
+        <div class="mod_cate_r2">
+            <volist name="cval['child']" id="child">
+                <if condition="$i lt 5">
+                    <a target="_blank" href="__APP__/Home/search/index/cid/{$child['cid']}">{$child['cname']}</a>
+                </if>
+            </volist>
+        </div>
+    </li>
+</volist>

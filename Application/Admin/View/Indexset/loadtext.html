@@ -1,0 +1,17 @@
+<foreach name="ads" item="ad">
+<tr>
+    <td>{$ad['ftid']}</td>
+    <td>{$ad['ftext']}</td>
+    <td>{$ad['fturl']}</td>
+    <td>
+        <div class="visible-md visible-lg visible-sm visible-xs action-buttons">
+            <a name="table-edit" class="green" href="{:U('Admin/Indexset/editText',array('id'=>$ad['ftid']))}">
+                <i class="icon-pencil bigger-130"></i>
+            </a>
+            <a name="del_{$ad['ftid']}" ytag="text" class="red" data-toggle="modal" href="#deleteModal">
+                <i class="icon-trash bigger-130"></i>
+            </a>
+        </div>
+    </td>
+</tr>
+</foreach>                                      

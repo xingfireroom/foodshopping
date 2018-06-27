@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{$title}</title>
+	<link rel="stylesheet" href="__PUBLIC__/home/css/findpwd_style.css">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/bootstrap.css">
+	<script src="__PUBLIC__/home/js/jquery.js"></script>
+	<script src="__PUBLIC__/home/js/bootstrap.js"></script>	
+</head>
+<body>
+	<nav class="find_nav">
+	<div class="find_nav1">
+		<div class="find_logo"><img src="__PUBLIC__/home/images/find.jpg" alt="" /></div>
+		<div class="find_info">
+			<ul>
+				<li><a href="__APP__/home/login">登录</a></li>
+				<li>求助</li>
+				<li>举报</li>
+				<li>反馈意见</li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+	<div class="find_navigation">
+	<div class="find_nav_content">
+		<ul>
+			<li>首页</li>
+			<li>密保工具</li>
+			<li>账号保护</li>
+			<li>密码管理</li>
+			<li>安全学堂</li>
+		</ul>
+	</div>
+	</div>	
+	<!--表单开头-->
+	<div class="find_main">
+		<div style="height:2px;"></div>
+		<div class="find_main_content">
+		<div class="find_main_manage">
+			<ul>
+				<li style="color:rgb(57,136,202)">密码管理&nbsp;></li>
+				<li style="text-align:left;">找回密码</li>
+			</ul>
+		</div>
+		<div class="find_form">
+		<form action="__CONTROLLER__/select" method="post">
+		<div class="find_name">
+				<div class="find_name1"><span style="color:red;">*</span>账号</div>
+				<div class="find_name2"><input type="text" name="uname" id="uname" required></div>
+		</div>
+		<div class="find_email">
+			<div class="find_email1"><span style="color:red;">*</span>邮箱</div>
+			<div class="find_email2"><input type="email" name="email" id="email" required></div>
+		</div>
+			<div class="find_sub"><input type="submit" value="下一步" id="sub" class="btn btn-primary"></div>
+		</div>
+			</form>
+		<div class="find_common">
+			<img src="__PUBLIC__/home/images/find-common.jpg" alt="">
+		</div>
+		</div>
+	</div>
+	<!--表单结束-->
+<!-- Modal -->
+<!--<div class="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">请查收</h4>
+      </div>
+      <div class="modal-body">-->
+    <!--<div id="form">
+      
+       <div class="find_name">
+				<div class="find_name1" style="width:70px;"><span style="color:red;">*</span>密　　码</div>
+				<div class="find_name2"><input type="password" name="password" id="pwd"></div>
+		</div>
+		<div class="find_name">
+				<div class="find_name1" style="width:70px;"><span style="color:red;">*</span>确认密码</div>
+				<div class="find_name2"><input type="password" id="pwd2"></div>
+		</div>
+
+
+      </div>-->
+      <!--<div class="find_name">
+				<div class="find_name1" style="width:70px;"><span style="color:red;">*</span>邮箱已发送至您的邮箱</div>
+		</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <input type="submit"  value="保存" class="btn btn-primary" id="upsub">
+        </div>
+      </div>-->
+   <!-- </div> /.modal-content -->
+ <!-- </div> /.modal-dialog -->
+<!--</div> /.modal -->
+<!--错误的时候弹出框-->
+<!--<div class="modal fade hide" id="select-error" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">填写有误</h4>
+      </div>
+      <div class="modal-body">
+    			请认真检查，填写是否正确
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>-->
+</body>
+<script>
+	$(".find_nav_content ul li").hover(function(){
+		$(this).toggleClass("find_color");
+	});
+	//下一步Ajax
+	/*$("#sub").on("click",function(){
+		var $uname = $("#uname").val();
+		var $email = $('#email').val();
+		$.ajax({
+			url:"__CONTROLLER__/select",
+			type:"post",
+			data:{uname:$uname,email:$email},
+			success:function(data){
+					if(data==1){
+						$('#myModal').modal("show");
+					}else{
+						$('#select-error').modal("show");
+					}					
+			}
+		});
+	});*/
+	//Ajax结束
+	//判断密码长度
+	/*$("#pwd").blur(function(){
+		if($(this).val().length < 6){
+			$(this).parent().next().remove();
+			$(this).parent().after("<div class='find_error'>密码长度不够</div>");
+		}else{
+			$(this).parent().next().remove();
+			$(this).parent().after("<div class='find_success'>请记住密码</div>");
+		
+		}
+	}).keyup(function(){
+		   $(this).triggerHandler("blur");
+		}).focus(function(){
+	  	   $(this).triggerHandler("blur");
+		});
+		//判断密码是否一致
+		$("#pwd2").blur(function(){
+			if($("#pwd2").val().length==0){
+				$(this).parent().next().remove();
+				$(this).parent().after("<div class='find_error'>请填写密码</div>");
+			}else if($(this).val() != $("#pwd").val()){
+				$(this).parent().next().remove();
+				$(this).parent().after("<div class='find_error'>密码不一致</div>");
+			}else{
+				$(this).parent().next().remove();
+				$(this).parent().after("<div class='find_success'>密码一致</div>");
+			}
+		}).keyup(function(){
+		   $(this).triggerHandler("blur");
+		}).focus(function(){
+	  	   $(this).triggerHandler("blur");
+		});
+	//提交时的验证
+	$("#upsub").click(function(){
+		$("#form :input.required").trigger('blur');
+		var find_error = $('#form .find_error').length;
+			if(find_error){
+				return false;
+			}else if($("#pwd").val().length==0){
+					$("#pwd").parent().after("<div class='find_error'>请填写密码</div>");
+					return false;
+			}else if($("#pwd2").val().length==0){
+				$("#pwd2").parent().after("<div class='find_error'>请填写密码</div>");
+				return false;
+			}
+		//得到用户名和密码
+		var $uname = $("#uname").val();
+		var $pwd = $("#pwd").val();
+		//用post方法将数据传到update方法中
+		$.post("__CONTROLLER__/update",
+			{"uname":$uname,"password":$pwd},
+			function(data){
+				if(data==1){
+					window.location="__APP__/home/login";
+				}else{
+					window.location="__APP__/home/findpwd";
+				}
+			});
+	})*/
+</script>
+</html>

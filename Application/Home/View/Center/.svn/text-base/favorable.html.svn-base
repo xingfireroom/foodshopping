@@ -1,0 +1,57 @@
+<extend name="Index:default" />
+<block name="header"><div class="ic_header"></block>
+<block name="nav"><div class="ic_nav" id="j_nav"></block>
+<block name="footer"><div class="ic_footer hide"></block>
+<block name="cate_css"><div class="mod_cate" id="category_container"></block>
+<block name="stylecss">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/center_style.css">
+</block>
+<block name="privatejs">
+	<script>
+	$("#category_container").hover(function(){
+		$(this).toggleClass("mod_cate_on");
+	});
+	$(".center_ul li a").hover(function(){
+		$(this).css("color","rgb(214,20,93)");	
+	},function(){
+		$(".center_ul li a").css("color","rgb(85,85,85)");
+	});
+</script>
+</block>
+<block name="content">
+<div class="center_main">
+		<div class="breadnav">		
+			<span><a href="__APP__/home/index" style="color:rgb(8,92,155)">{$bread.0}</a></span>&nbsp;>&nbsp;<span><a href="__CONTROLLER__/index" style="color:rgb(8,92,155)">{$bread.1}</a>&nbsp;></span><span>&nbsp;{$bread.2}</span>
+		</div>
+		<div class="center_left">
+		<div class="center_classify">
+			<h1>交易管理<h1>
+		</div>
+			<ul class="center_ul">
+				<li><a href="__CONTROLLER__/indent">我的订单</a></li>
+				<li><a href="__CONTROLLER__/collect">我的收藏</a></li>
+				<li style="background:rgb(49,101,176);"><a href="__CONTROLLER__/favorable" style="color:#ffffff;">我的优惠劵</a></li>
+				<li><a href="__CONTROLLER__/scores">我的积分</a></li>
+				<li><a href="__CONTROLLER__/balance">我的账户余额</a></li>
+		<div class="center_classify">
+			<h1>服务中心<h1>
+		</div>
+				<li><a href="__APP__/Home/Service" target="_blank">催办订单</a></li>
+				<li><a href="__APP__/Home/Service" target="_blank">修改订单</a></li>
+				<li><a href="__APP__/Home/Service" target="_blank">取消订单</a></li>
+		<div class="center_classify">
+			<h1>资料管理<h1>
+		</div>
+				<li><a href="__CONTROLLER__/data">个人资料</a></li>
+				<li><a href="__CONTROLLER__/delivery">收货信息</a></li>
+				<li><a href="__CONTROLLER__/instation">站内信</a></li>
+			</ul>	
+		</div>
+		<div class="center_right">
+			我的优惠劵
+		</div>
+</div>
+<div class="mod_backtop hide" id="j_backtop">
+            <a href="javascript:" title="回顶部" ytag="72300">回顶部</a>
+        </div>
+</block>

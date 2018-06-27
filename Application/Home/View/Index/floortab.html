@@ -1,0 +1,18 @@
+<ul class="food_mod_rank_bd hide" id="viewtab_{$data['cid']}" style="opacity: 1; display: block;">
+    <volist name="goods" id="vo">
+        <li>
+            <i class="food_mod_rank_order food_mod_rank_order_{$i}">{$i}</i>
+            <div class="mod_goods mod_goods_w80" _loaded="true">
+                <div class="mod_goods_img load_effect">
+                    <a target="_blank" href="__MODULE__/Goods/index/gid/{$vo.gid}">
+                        <img class="lazy" src="__PUBLIC__/Goodsuploads/{$vo['gpic']}" width="80" height="80">
+                        </a>
+                </div>
+                <div class="mod_goods_info">
+                    <p class="mod_goods_tit"><a target="_blank" href="__APP__/Home/Goods/index/gid/{$vo['gid']}">{$vo['gname']}</a></p>
+                    <p class="mod_goods_price"><span class="mod_price"><i>¥</i><span>{$vo['goldprice']}</span></span></p>
+                </div>
+            </div>
+        </li>
+    </volist>
+</ul>

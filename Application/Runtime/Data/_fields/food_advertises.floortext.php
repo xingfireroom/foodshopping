@@ -1,0 +1,1 @@
+a:6:{i:0;s:4:"ftid";i:1;s:4:"frid";i:2;s:5:"ftext";i:3;s:5:"fturl";s:3:"_pk";s:4:"ftid";s:5:"_type";a:4:{s:4:"ftid";s:21:"mediumint(8) unsigned";s:4:"frid";s:12:"mediumint(8)";s:5:"ftext";s:11:"varchar(20)";s:5:"fturl";s:12:"varchar(255)";}}

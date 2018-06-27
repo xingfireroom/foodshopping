@@ -1,0 +1,170 @@
+<extend name="Index:default" />
+<block name="header"><div class="ic_header hide"></block>
+<block name="nav"><div class="ic_nav hide" id="j_nav"></block>
+<block name="footer"><div class="ic_footer"></block>
+<block name="cate_css"><div class="mod_cate mod_cate_on" id="category_container"></block>
+<block name="stylecss">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/gb1.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/gb.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/style1.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/cart_v2.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/phone_validate.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/msgbox.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/order_confirm.css" type="text/css" media="screen">
+	<style type="text/css">
+		.of_col2 {
+			width: 800px;
+			 float: left;
+			 margin-left: 80px;
+			 margin-bottom:10px;
+		}
+		.of_mod_status_tit {
+			font-family: microsoft yahei;
+			font-size: 16px;
+		}
+		.of_mod_status_desc {
+			margin-top: 5px;
+		}
+		.of_mod_status_desc em {
+			color: #f40103;
+			vertical-align: middle;
+		}
+		.of_mod_status_orderno {
+			margin-top: 15px;
+		}
+		.of_mod_status_limit {
+			margin-top: 5px;
+		}
+		.of_mod_status_limit .price {
+			color: #f40103;
+			font-size: 16px;
+			vertical-align: bottom;
+		}
+		#divPayTab{
+			margin:20px auto 20px auto;
+		}
+	</style>
+</block>
+<block name="privatejs"></block>
+<block name="content">
+	<div class="ic_header">
+		<div class="grid_c1"> 
+			<div class="mod_logo">
+				<a href="__APP__/home/index" ytag="00300">
+					<img src="__PUBLIC__/uploads/{$web['wlogo']}" alt="商城网">
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="main" id="container">
+		<!-- 流程 开始 -->
+		<div class="flow_step_no3 flow_cart">
+			<div class="flow_step">
+				<ol class="cols3">
+					<li class="step_1">我的购物车</li>
+					<li class="step_2">填写核对订单</li>
+					<li class="step_3">订单提交成功</li>
+				</ol>
+			</div>
+		</div>
+		<!-- 流程 结束 -->
+		<div class="of_wrap">
+			<div class="of_col2">
+				
+                <!--货到付款-->
+               <if condition="$Think.get.paytype eq 3">
+                <div class="of_mod_status">
+				    <h3 class="of_mod_status_tit">订单已提交成功，我们将为您闪电送达！</h3>
+					<p class="of_mod_status_desc">收货时您可以选择刷卡或支付现金！ </p>
+					<p ytag="20011" class="of_mod_status_orderno">
+						<strong>订单编号：</strong>{$orders.onumber}
+					</p>
+					<p class="of_mod_status_limit"><strong>订单金额：</strong><span class="price">¥{$orders.total}</span></p>
+				</div>
+				<div style="" id="divPayTab" class="pay_tab">
+					<div class="pay_tab_bd">
+						<div class="confirm_action">
+							<a title="前往个人中心" href="__APP__/home/center/index" id="btnSelectPayType" class="yx_btn_normal110">前往个人中心</a>
+						</div>
+					</div>
+				</div>
+                </if>
+                 <!--支付宝支付-->
+                <if condition="$Think.get.paytype eq 2">
+				<div style="" id="divPayTab" class="pay_tab">
+					<div class="pay_tab_bd">
+						<div class="confirm_action">
+							<a title="前往个人中心" href="__APP__/home/center/index" id="btnSelectPayType" class="yx_btn_normal110">前往个人中心</a>
+						</div>
+					</div>
+				</div>
+                </if>
+                <!--微信支付-->
+               <if condition="$Think.get.paytype eq 1">
+               <div class="of_mod_status">
+				    <h3 class="of_mod_status_tit">订单已提交成功！</h3>
+					<p ytag="20011" class="of_mod_status_orderno">
+						<strong>订单编号：</strong>{$orders.onumber}
+					</p>
+					<p class="of_mod_status_limit"><strong>订单金额：</strong><span class="price">¥{$orders.total}</span></p>
+				</div>
+				<div style="" id="divPayTab" class="pay_tab">
+					<table class="table wxpayment">
+                      <caption>支付方式：微信支付</caption>
+
+                       <tbody>
+                          <tr>
+                             <td colspan="2" style=" color:#007f56" align="center">
+                              <div  id="qrcode" class="img-thumbnail">
+                              </div>
+                              <span id="orderstate"></span>
+                             </td>
+                            
+                          </tr>
+                          <tr>
+                             <td colspan="2"><a href="__MODULE__/Index/index"><button type="button" class="btn btn-success">返回继续选购</button></a></td>
+                          </tr>
+                       </tbody>
+                    </table>
+				</div>
+                </if>
+                
+                <script type="text/javascript" src="__PUBLIC__/Home/js/qrcode.js"></script>
+				<script>
+                    var codeurl="{$code_url}";
+                     //alert(codeurl);
+                     
+                    if( codeurl!= '')
+                    {  // alert(222);
+                        var url = codeurl;
+                        //参数1表示图像大小，取值范围1-10；参数2表示质量，取值范围'L','M','Q','H'
+                        var qr = qrcode(10, 'M');
+                        qr.addData(url);
+                        qr.make();
+                        var wording=document.createElement('p');
+                        wording.innerHTML = "扫我，支付";
+                        var code=document.createElement('DIV');
+                        code.innerHTML = qr.createImgTag();
+                        var element=document.getElementById("qrcode");
+                        element.appendChild(wording);
+                        element.appendChild(code);
+                    }
+                </script>
+                
+				<div class="mod_note">
+					<h4 class="mod_hd">注意事项：</h4>
+					<div class="mod_bd">
+						<ol>
+							<li>“订单提交成功”仅表明商城网收到了您的订单，只有您的订单通过审核后，才代表订单正式生效；</li>
+							<li>选择货到付款/商城快递的客户，请您务必认真检查所收货物，如有不符，您可以拒收；</li>
+							<li>选择其他方式的客户，请您认真检查外包装。如有明显损坏迹象，您可以拒收该货品，并及时通知我们；</li>
+							<li>建议您在购买的15天内保留商品的全套包装、附件、发票等所有随货物品，以便后续的保修处理。</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</block>
+
+

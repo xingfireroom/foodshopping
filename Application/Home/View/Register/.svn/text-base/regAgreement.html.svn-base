@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>{$title}</title>
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/login_style.css">
+	<link rel="stylesheet" href="__PUBLIC__/Home/css/style.css">
+</head>
+<body>
+	<div class="agreement_nav">
+		<div class="agreement_qq">
+			<img src="__PUBLIC__/Home/images/qqagreement.jpg" alt="">
+		</div>
+		<div class="agreement_content">
+			<div class="agreement_title">
+				<h1>{$articles.atitle}</h1>
+			</div>
+			<div class="agreement_article">
+				{$articles.acontent|htmlspecialchars_decode}
+			</div>
+		</div>
+		<div class="agreement_foot">
+		Copyright © 1998-2014 Tencent All Rights Reserved 三虾公司 版权所有
+		</div>
+	</div>
+	
+</body>
+</html>

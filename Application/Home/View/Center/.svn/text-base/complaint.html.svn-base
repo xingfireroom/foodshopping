@@ -1,0 +1,58 @@
+<include file="head" />
+<div class="center_main">
+		<div class="breadnav">		
+			<span><a href="__APP__/home/index" style="color:rgb(8,92,155)">{$bread.0}</a></span>&nbsp;>&nbsp;<span><a href="__CONTROLLER__/index" style="color:rgb(8,92,155)">{$bread.1}</a>&nbsp;></span><span>&nbsp;{$bread.2}</span>
+		</div>
+		<div class="center_left">
+		<div class="center_classify">
+			<h1>交易管理<h1>
+		</div>
+			<ul class="center_ul">
+				<li><a href="__CONTROLLER__/indent">我的订单</a></li>
+				<li><a href="__CONTROLLER__/collect">我的收藏</a></li>
+				<li><a href="__CONTROLLER__/favorable">我的优惠劵</a></li>
+				<li><a href="__CONTROLLER__/gift">我的礼品卡</a></li>
+				<li><a href="__CONTROLLER__/scores">我的积分</a></li>
+				<li><a href="__CONTROLLER__/consult">商品咨询</a></li>
+				<li><a href="__CONTROLLER__/protect">价格保护</a></li>
+				<li><a href="__CONTROLLER__/balance">我的账户余额</a></li>
+				<li><a href="__CONTROLLER__/inform">到货通知</a></li>
+		<div class="center_classify">
+			<h1>服务中心<h1>
+		</div>
+				<li><a href="__CONTROLLER__/install">上门安装</a></li>
+				<li style="background:rgb(49,101,176);"><a href="__CONTROLLER__/complaint" style="color:#ffffff;">在线投诉</a></li>
+				<li><a href="__CONTROLLER__/repairs">报修/退换货</a></li>
+				<li><a href="__CONTROLLER__/collect">更多>></a></li>
+		<div class="center_classify">
+			<h1>资料管理<h1>
+		</div>
+				<li><a href="__CONTROLLER__/account">账户安全</a></li>
+				<li><a href="__CONTROLLER__/data">个人资料</a></li>
+				<li><a href="__CONTROLLER__/delivery">收货信息</a></li>
+				<li><a href="__CONTROLLER__/instation">站内信</a></li>
+			</ul>	
+		</div>
+		<div class="center_right">
+		在线投诉
+
+		</div>
+</div>
+
+
+<div class="mod_backtop hide" id="j_backtop">
+            <a href="javascript:" title="回顶部" ytag="72300">回顶部</a>
+        </div>
+
+
+<include file="foot" />
+<script>
+	$("#category_container").hover(function(){
+		$(this).toggleClass("mod_cate_on");
+	});
+	$(".center_ul li a").hover(function(){
+		$(this).css("color","rgb(214,20,93)");	
+	},function(){
+		$(".center_ul li a").css("color","rgb(85,85,85)");
+	});
+</script>

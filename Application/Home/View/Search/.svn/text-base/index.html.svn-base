@@ -1,0 +1,387 @@
+<extend name="Index:default" />
+<block name="stylecss">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/search_v2.css">
+</block>
+<block name="header"><div class="ic_header"></block>
+<block name="nav"><div class="ic_nav" id="j_nav"></block>
+<block name="footer"><div class="ic_footer"></block>
+<block name="cate_css"><div class="mod_cate" id="category_container"></block>
+<block name="privatejs">
+    <script src="__PUBLIC__/home/js/search.js"></script>
+</block>
+<block name="content">
+    <!-- 路径面包屑 -->        
+    <div id="crumbBox" class="crumb">
+        <div class="grid_c1">
+            <div class="crumb_wrap">
+                <div class="crumb_inner" style="width: 10000px; left: 0px;">
+                    <a class="crumb_lk" href="__APP__/Home/Index/index" >首页</a>
+                    <span class="crumb_arrow">&gt;</span>
+                    <volist name="bnav" id="bval">
+                        <a class="crumb_lk" href="{:U('Home/Search/index',array('cid'=>$bval['cid']))}" >{$bval['cname']}</a>
+                        <span class="crumb_arrow">&gt;</span>
+                    </volist>
+                    
+                    <!-- 选中下 -->
+                    
+                    <if condition="$currbrand['bid'] gt 0">
+                        <a class="crumb_selected" href="javascript:;" keyname="brand" title="brandkey" >
+                            <span class="crumb_selected_tit">品牌：</span>
+                            <span class="crumb_selected_cnt">{$currbrand['bname']}</span><i>×</i>
+                        </a>
+                    </if>
+                    <if condition="$currselect[0]['id'] gt 0">
+                        <volist name="currselect" id="currvo">
+                                <a class="crumb_selected" href="javascript:;" keyname="attr" attrkey="{$currvo['id']}" title="brandkey" >
+                                    <span class="crumb_selected_tit">{$currvo['attrname']}：</span>
+                                    <span class="crumb_selected_cnt">{$currvo['attrvalue']}</span><i>×</i>
+                                </a>                            
+                        </volist>
+                    </if>
+                    <if condition="($currselect[0]['id'] gt 0) OR ($currbrand['bid'] gt 0)">
+                        <span class="crumb_arrow">&gt;</span>
+                    </if>
+                    <div class="crumb_search ">
+                        <input id="crumbKey" value="{$Think.get.searchval}" class="crumb_input" type="text">
+                        <a id="crumbSearchKey" href="javascript:;" class="crumb_btn_submit"></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="crumb_clear">
+                <a id="crumbClearAttr" class="crumb_clear_lk" href="{:U('Home/Search/index',array('cid'=>$_GET['cid']))}" >清空已选属性</a>
+            </div>
+            
+            <a id="crumbShiftLeft" href="javascript:;" class="crumb_act crubm_act_l hide"><!-- 向左 --></a>
+            <a id="crumbShiftRight" href="javascript:;" class="crumb_act crubm_act_r hide"><!-- 向右 --></a>
+        </div>
+    </div><!--[if !IE]>|xGv00|9bc8c77a35890211d2b072ea1d6a4e74<![endif]-->
+
+    <!-- 中间部分 -->
+    <div id="container" class="ic_content scontent">
+        <div class="grid_c2a">                
+            <div class="grid_s sside">
+                <!-- 有关键字时导航聚类 -->    
+                <div class="cate cate_2" id="cateList">
+                    <div class="cate_hd"><h3 class="cate_hd_tit">搜索结果分类</h3></div>
+                    <div class="cate_bd">
+                        <volist name="allclass" id="vo">
+                            <div class='cate_item {$vo["cid"] == $cid?"cate_item_on":""}' {$vo["cid"] == $cid?"mtag='active'":""} name="left_cate" ytag="leftc_{$vo['cid']}">
+                                <div class="cate_tit ">
+                                    <a class="cate_tit_a" title="{$vo['cname']}" href="{:U('Home/Search/index',array('cid'=>$vo['cid']))}" ><span class="cate_tit_name">{$vo['cname']}</span></a>
+                                    <span class="cate_tit_ico"></span>
+                                </div>
+                                <div class="cate_cnt">
+                                    <volist name="vo['child']" id="child">
+                                        <a class='cate_lk2 {$child["cid"] == $cid?"cate_lk2_on":""}' {$child["cid"] == $cid?"name='active'":""}href="{:U('Home/Search/index',array('cid'=>$child['cid']))}" title="{$child['cname']}" ><span class="cate_lk2_name">{$child['cname']}</span></a>
+                                    </volist>
+                                </div>
+                            </div>
+                        </volist>
+                    </div>
+                </div>
+                
+                <!--本周热销榜-->
+                <div id="hotSell" class="recommend">
+                    <div class="recommend_hd">
+                        <h3 class="recommend_tit">本类热销榜</h3>
+                    </div>
+                    <div class="recommend_bd">
+                        <div class="recommend_goods">
+                            <ul>
+                                <volist name="hotsales" id="hotvo">
+                                    <li class="recommend_goods_li" commid="853958">
+                                        <div class="mod_goods mod_goods_w60">
+                                            <div class="mod_goods_img">
+                                                <a class="img"  href="__APP__/Home/Goods/index/gid/{$hotvo['gid']}" target="_blank" title="">
+                                                    <img iguid="8" src="__PUBLIC__/Goodsuploads/{$hotvo['gpic']}" height="60" width="60"><span class="recommend_goods_rank">{$i}</span>
+                                                </a>
+                                            </div>
+                                            <div class="mod_goods_info">
+                                                <p class="mod_goods_tit">
+                                                    <a  href="__APP__/Home/Goods/index/gid/{$hotvo['gid']}" target="_blank" title="{$hotvo['gname']}">{$hotvo['gname']}</a>
+                                                </p>
+                                                <p class="mod_goods_price"><span class="mod_price"><i>¥</i><span>{$hotvo['gprice']}</span></span></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </volist>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><!--[if !IE]>|xGv00|77fa72dbde67d1e4a653952321fbd2de<![endif]-->
+                    
+            <div class="grid_m smain">
+                <div class="grid_m_inner" >
+                    <div class="filter" id="attrList">                
+                        <div class="filter_area filter_area_nav">
+                            <!-- 二级导航选中 -->                    
+                            <div isshow="1" attrindex="2015_1" class="filter_item" attrkey="705856" attrtype="nav" attrnum="1">
+                                <div class="filter_tit" title="手机">{$curr['cname']}</div>
+                                <div class="filter_con">
+                                    <dl class="filter_dl">
+                                        <foreach name="childs" item="child">
+                                            <dd class="filter_dd " attrvalue="707217">
+                                                <a class="filter_lk" href="{:U('Home/Search/index',array('cid'=>$child['cid']))}" >
+                                                <span class="filter_lk_name">{$child['cname']}</span>        
+                                                <i class="filter_dd_arrow"></i></a>
+                                            </dd>
+                                        </foreach>
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="filter_item_blank"></div>
+                        </div>
+            
+                        <div class="filter_area">                
+                            <!-- 普通属性 -->
+                            <div name="goodsbrand" class="filter_item filter_item_brand filter_item_multiple">
+                                <div class="filter_tit" title="品牌">品牌</div>
+                                <div class="filter_con">                
+                                    <div class="filter_atoz hide">
+                                        <a class="filter_atoz_item filter_atoz_current" href="javascript:void(0);"><b>全部</b></a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">A</a><a class="filter_atoz_item " href="javascript:void(0);">B</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">C</a><a class="filter_atoz_item " href="javascript:void(0);">D</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">E</a><a class="filter_atoz_item " href="javascript:void(0);">F</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">G</a><a class="filter_atoz_item " href="javascript:void(0);">H</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">I</a><a class="filter_atoz_item " href="javascript:void(0);">J</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">K</a><a class="filter_atoz_item " href="javascript:void(0);">L</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">M</a><a class="filter_atoz_item " href="javascript:void(0);">N</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">O</a><a class="filter_atoz_item " href="javascript:void(0);">P</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">Q</a><a class="filter_atoz_item " href="javascript:void(0);">R</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">S</a><a class="filter_atoz_item " href="javascript:void(0);">T</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">U</a><a class="filter_atoz_item " href="javascript:void(0);">V</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">W</a><a class="filter_atoz_item " href="javascript:void(0);">X</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">Y</a><a class="filter_atoz_item " href="javascript:void(0);">Z</a>
+                                        <a class="filter_atoz_item " href="javascript:void(0);">其他</a>
+                                    </div>
+                                    
+                                    <dl class="filter_dl" id="brand_dl">
+                                        <dt class="filter_dt filter_dt_on" brandvalue="0">
+                                            <a href="javascript:" nametag="brand">不限</a>
+                                        </dt>
+                                        <volist name="brands" id="brand" key="bnum">
+                                            <dd isshow="1" class="filter_dd" bindex="{$brand['firstchar']}" brandvalue="{$brand['bid']}">
+                                                <a class="filter_lk" title="{$brand['bname']}" nametag="brand" href="javascript:">{$brand['bname']}<span class="filter_x">×</span></a>
+                                            </dd>
+                                        </volist>
+                                    </dl>
+                                </div>
+                                <div class="filter_act hide">
+                                    <a class="filter_showmore" href="javascript:;"><i></i><span>更多</span></a><a href="javascript:;" class="filter_choosemore" style="visibility: hidden;"><i></i><span>多选</span></a>
+                                </div>
+                            </div>
+
+                            <!-- 普通属性 -->
+                            <volist name="attr" id="av" key="keyn">
+                                <if condition="$keyn lt 5">
+                                <div class="filter_item  filter_item_single">
+                                    <div class="filter_tit" title="{$av['attrname']}">{$av['attrname']}</div>
+                                    <div class="filter_con" id="attr_{$keyn-1}">
+                                        <dl class="filter_dl">
+                                            <dt class="filter_dt filter_dt_on" attrvalue="0">
+                                                <a href="javascript:" nametag="attr">不限</a>
+                                            </dt>
+                                            <volist name="av['value']" id="aval" key="attrid">
+                                                <dd isshow="1" class="filter_dd " attrvalue="{$aval['id']}">
+                                                    <a class="filter_lk" href="javascript:" nametag="attr">{$aval['attrvalue']}<span class="filter_x">×</span></a>
+                                                </dd>
+                                            </volist>
+                                        </dl>
+                                    </div>
+                                    <div class="filter_act hide">
+                                        <a class="filter_showmore" href="javascript:;"><i></i><span>更多</span></a><a href="javascript:;" class="filter_choosemore" style="visibility: hidden;"><i></i><span>多选</span></a>
+                                    </div>
+                                </div>
+                                <else />
+                                    <!-- 属性集 -->
+                                    <if condition="$keyn eq 5">
+                                    <div class="filter_item filter_item_attrmore">
+                                        <div class="filter_tit">更多选项</div>
+                                        <div class="filter_con">
+                                            <dl class="filter_dl" >
+                                    </if>
+                                                <dd class="filter_attr" id="attr_{$keyn-1}">
+                                                    <a class="filter_attr_hd" nametag="viewattr">{$av['attrname']}<i></i><span class="filter_x">×</span></a>
+                                                    <div attrindex="2015_6" class="filter_attr_bd">
+                                                        <div class="filter_attr_list">
+                                                            <a class="filter_attr_item filter_attr_item_on" attrvalue="0" href="javascript:" nametag="attrsel">不限<span class="filter_x">×</span></a>
+                                                            <volist name="av['value']" id="aval">
+                                                                <a class="filter_attr_item " href="javascript:" attrvalue="{$aval['id']}" nametag="attrsel">{$aval['attrvalue']}<span class="filter_x">×</span></a>
+                                                            </volist>
+                                                        </div>
+                                                    </div>
+                                                </dd>
+     
+                                </if>
+                            </volist>
+                            <if condition="$keyn gt 5">
+                                        </dl>
+                                    </div>
+                                </div>
+                            </if>
+                        <div class="filter_item_blank"></div>
+                        </div>    
+                    </div>
+                    <input type="hidden" name="attr" value="{$Think.get.attr}">
+                    <!-- 排序和价格筛选区 -->
+
+                    <div class="sort" id="list" name="list">
+                        <div class="sort_cate">
+                            <a nametag="sort" sortbtntype="0" href="javascript:" class="sort_cate_lk sort_cate_default" title="点击恢复默认排序" ><span>默认</span></a>
+                            <a nametag="sort" sortbtntype="1" href="javascript:" class="sort_cate_lk " title="点击按销量从高到低排序" ><span>销量</span><b class="sort_arrow"></b></a>
+                            <!-- <a nametag="sort" sortbtntype="2" href="javascript:" class="sort_cate_lk " title="点击按评论数从高到低排序" ><span>评论</span><b class="sort_arrow"></b></a> -->
+                            <a nametag="sort" sortbtntype="3_4" href="javascript:" class="sort_cate_lk sort_cate_price" title="点击按价格从低到高排序" ><span>价格</span><b class="sort_arrow"></b></a>
+                        </div>
+                        <div id="sPriceFloat" class="sort_price">
+                            <div class="sort_price_inner">
+                                <div class="sort_price_detail">
+                                    <span id="sPriceHover" class="sort_price_detail_main">
+                                        <input value="最低价" id="sBeginPrice" placeholder="最低价" class="sort_price_input" type="text">
+                                        <span class="sort_price_bar">-</span>
+                                        <input value="最高价" id="sEndPrice" placeholder="最高价" class="sort_price_input" type="text">
+                                        <span id="sPriceMore" class="sort_price_arrow"></span>
+                                    </span>
+                                    <a id="sConfirmPrice" href="javascript:;" class="sort_price_sure">确定</a>
+                                </div>
+                                <!-- 价格区间 -->
+                                
+                                <div id="sPriceRange" class="sort_price_lists">                    
+                                    <p class="sort_price_item">
+                                        <a href="javascript:" >0-499</a>
+                                    </p>                    
+                                    <p class="sort_price_item">
+                                        <a href="javascript:" >500-999</a>
+                                    </p>                    
+                                    <p class="sort_price_item">
+                                        <a href="javascript:" >1000-1499</a>
+                                    </p>                    
+                                    <p class="sort_price_item">
+                                        <a href="javascript:" >1500-1999</a>
+                                    </p>                    
+                                    <p class="sort_price_item">
+                                        <a href="javascript:" >2000-2999</a>
+                                    </p>                    
+                                    <p class="sort_price_item">
+                                        <a href="javascript:" >3000-3999</a>
+                                    </p>                    
+                                    <p class="sort_price_item">
+                                        <a href="javascript:" >4000以上</a>
+                                    </p>
+                                </div>                
+                            </div>
+                        </div>
+
+                        <div class="sort_type">
+                            <div class="sort_type_inner" id="filterTypes">
+                                <div class="sort_type_main">
+                                    <a id="stockFilterChk" href="javascript:;" class="sort_type_radio"><i></i><span>仅显示有货</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sort_page">
+                            <div class="sort_page_txt">共<b>134</b>件商品</div>
+                        </div>
+                        <div class="sort_style">
+                            <!-- 选中时，增加class="sort_style_lk_on" -->
+                            <a showbtntype="0" href="javascript:;" title="大图"  class="sort_style_lk sort_style_lk_on">
+                                <b class="sort_style_pic"><i></i></b>
+                            </a>
+                            <a showbtntype="1" href="javascript:;" title="列表"  class="sort_style_lk ">
+                                <b class="sort_style_list"><i></i></b>
+                            </a>
+                        </div>
+                    </div>
+                    <form name="searchattr" action="{:U('Home/search/index')}" method="get">
+                        <input type="hidden" name="cid" value="{$Think.get.cid}">
+                        <input type="hidden" name="bid" value="{$Think.get.bid}">
+                        <input type="hidden" name="attr" value="{$Think.get.attr}">
+                        <input type="hidden" name="sort" value="{$Think.get.sort}">
+                        <input type="hidden" name="price" value="{$Think.get.price}">
+                        <input type="hidden" name="stockfilter" value="{$Think.get.stockfilter}">
+                        <input type="hidden" name="style" value="{$Think.get.style}">
+                        <input type="hidden" name="searchval" value="{$Think.get.searchval}">
+                        <input type="hidden" name="page" value="{$Think.get.page}">
+                        <input type="hidden" name="search" value="{$Think.get.search}">
+                    </form>
+                    <div class="goods">
+                        <ul class="goods_ul" id="itemList">
+                            <volist name="goods" id="goodsvo">
+                            <li style="cursor: pointer;" class="goods_li">
+                                <div class="mod_goods">
+                                    <div class="mod_goods_img">
+                                        <a class="link_pic" target="_blank" href="__APP__/Home/Goods/index/gid/{$goodsvo['gid']}" pos="1" >
+                                            <img class="" iguid="0" src="__PUBLIC__/Goodsuploads/{$goodsvo['gpic']}" alt="{$goodsvo['gname']}" onerror="this.src=''" height="200" width="200">                      
+                                        </a>
+                                    </div>
+                                    <div class="mod_goods_info">
+                                        <p class="mod_goods_promo" title=""></p>
+                                        <p class="mod_goods_tit"><a href="__APP__/Home/Goods/index/gid/{$goodsvo['gid']}" target="_blank" title="{$goodsvo['gname']}">{$goodsvo['gname']}</a></p>
+                                        <p class="mod_goods_price">
+                                            <span class="mod_price">
+                                                <i>¥</i><span>{$goodsvo['goldprice']}.00</span>
+                                            </span>
+                                            <span class="goods_comments"><a target="_blank" href="__APP__/Home/Goods/index/gid/{$goodsvo['gid']}" pos="201" ><b>{$goodsvo['gsellnums']}</b>销量</a></span>
+                                        </p>
+                                        <div class="goods_more">
+                                            <div class="goods_more_hd">
+                                                <a class="goods_buy" ptag="{$goodsvo['goldprice']}" idtag="{$goodsvo['gid']}" style="width:83px;height:24px;" href="javascript:;">
+                                                <i></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="goods_btn">
+                                            <a class="goods_buy" ptag="{$goodsvo['goldprice']}" idtag="{$goodsvo['gid']}" href="javascript:;"> </a>
+                                            <i></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            </volist>
+                        </ul>
+                        <div class="mod_carttip mod_carttip2 hide" style="position: absolute; z-index: 29;">
+                            <div class="mod_carttip_inner">
+                                <div class="mod_carttip_bd clearfix">
+                                    <div class="mod_carttip_ico">
+                                    <i class="mod_carttip_ico_success"></i>
+                                    </div>
+                                    <div class="mod_carttip_con">
+                                        <h4>添加成功!</h4>
+                                        <div class="mod_carttip_action">
+                                            <a class="mod_carttip_btn mod_carttip_btn_bg2 mod_carttip_btn1" onclick="$('.mod_carttip_close').click()" target="_blank" href="__APP__/Home/Showcart/index">
+                                            <span>去结算</span>
+                                            </a>
+                                            <a class="mod_carttip_btn mod_carttip_btn_bg1 mod_carttip_btn2" style="margin-left: 5px;" onclick="$('.mod_carttip_close').click()" href="javascript:void(0)" ytag="71003">继续购物</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <i class="mod_carttip_arr mod_carttip_arr3"> </i>
+                            <a class="mod_carttip_close" title="关闭" href="javascript:;" ytag="71001">×</a>
+                        </div>
+                    </div>
+                    <!--底部翻页器-->
+                    {$page}
+                    <!--或许你还想找-->
+                    <div class="otherwords hide" id="bottomProwords"> </div>
+                    <!--底部搜索框-->
+                    <div class="sbottom">
+                        <form id="searchform" action="{:U('Home/Search/index')}" target="_top">
+                            <input id="areacode2" name="area" value="1" type="hidden">
+                            <input id="charset2" name="charset" value="utf-8" type="hidden">
+                            <input id="as2" name="as" value="1" type="hidden">
+                            <input id="q_show2" name="searchval" autocomplete="off" x-webkit-speech="" class="sbottom_input" type="text">
+                            <button type="submit" class="sbottom_btn" >搜索</button>
+                        </form>
+                    </div>
+                    <!-- 无结果导航 -->
+                    <div class="navmap hide" id="navMapPage"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mod_backtop" id="j_backtop">
+        <a href="javascript:" title="回顶部" >回顶部</a>
+    </div>
+</block>

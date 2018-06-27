@@ -1,0 +1,1 @@
+a:6:{i:0;s:3:"cid";i:1;s:5:"cname";i:2;s:8:"parentid";i:3;s:5:"cpath";s:3:"_pk";s:3:"cid";s:5:"_type";a:4:{s:3:"cid";s:21:"mediumint(8) unsigned";s:5:"cname";s:12:"varchar(255)";s:8:"parentid";s:12:"mediumint(8)";s:5:"cpath";s:12:"varchar(255)";}}

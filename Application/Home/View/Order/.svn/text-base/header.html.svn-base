@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="csstransitions cssanimations ic_gecko ic_firefox ic_12">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+	<link rel="stylesheet" href="showcart_files/gb_002.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="showcart_files/gb.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="showcart_files/cart_v2.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/gb1.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/gb.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/style1.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/cart_v2.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/phone_validate.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/msgbox.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/order_confirm.css" type="text/css" media="screen">
+	<script type="text/javascript" src="__PUBLIC__/home/js/jquery.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/home/js/area.js" ></script>
+</head>
+<body class="ic_mini">
+	<div class="ic_toolbar">
+		<div class="grid_c1">
+			<div class="mod_entry">
+				<a target="_blank" class="mod_entry_mix" href=""><b>手机易迅</b></a>
+			</div>
+			<div class="mod_sitemap" role="navigation">
+				<ul class="mod_sitemap_ul" id="j_sitemap">
+					<if condition="empty($_SESSION['uname'])">
+						<li class="mod_sitemap_li">
+							<a href="__APP__/home/login">登录&nbsp;</a>
+						</li>
+						<li class="mod_sitemap_gap">|</li>
+						<li class="mod_sitemap_li">
+							<a href="__APP__/home/register">注册&nbsp;</a>
+						</li>
+					<else />
+						<li class="mod_sitemap_li">
+							欢迎您，<a target="_blank" ><a href="__APP__/home/center">{$Think.session.uname}</a>&nbsp;</a>
+						</li>
+						<li class="mod_sitemap_gap">|</li>
+						<li class="mod_sitemap_li">
+							<a  href="__APP__/home/index/exitlogin">退出&nbsp;</a>
+						</li>
+					</if>
+					<li class="mod_sitemap_gap">|</li>
+					<li class="mod_sitemap_li mod_dropmenu" id="j_order">
+						<div aria-label="我的订单" class="mod_dropmenu_hd">
+							<a id="PageMyOrderLink" href="" target="_blank" class="mod_dropmenu_tit">我的订单</a>
+					  		<i class="mod_dropmenu_arrow"></i>
+						</div>
+						<!-- 订单信息《js》 -->
+						<div class="mod_dropmenu_pop hide" id="j_iorder_pop"></div>
+					</li>
+					<li class="mod_sitemap_gap">|</li>
+					<li class="mod_sitemap_li">
+						<a target="_blank" href="">我的易迅&nbsp;</a>
+					</li>
+					<li class="mod_sitemap_gap">|</li>
+					<li class="mod_sitemap_li">
+						<a target="_blank" href="">服务中心&nbsp;</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="ic_header">
+		<div class="grid_c1"> 
+			<div class="mod_logo">
+				<a href="http://www.yixun.com/" ytag="00300">
+					<img src="__PUBLIC__/home/images/logo_2013_v1.png" alt="易迅网">
+				</a>
+			</div>
+		</div>
+	</div>

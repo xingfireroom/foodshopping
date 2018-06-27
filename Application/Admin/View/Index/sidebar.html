@@ -1,0 +1,103 @@
+        <!-- 侧边菜单开始 -->
+        <div class="sidebar" id="sidebar">
+            <script type="text/javascript">
+                try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+            </script>
+            <ul class="nav nav-list">
+                <li>
+                    <a id="indexpage" href="{:U('Admin/Index/index')}">
+                        <i class="icon-dashboard"></i>
+                        <span class="menu-text"> 控制台 </span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="{:U('Admin/Websetting/index')}">
+                        <i class="icon-cog"></i>
+                        <span class="menu-text"> 网站配置 </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Admin/Indexset/index')}">
+                        <i class="icon-desktop"></i>
+                        <span class="menu-text"> 首页设置 </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{:U('Admin/Adset/index')}">
+                        <i class="icon-eye-open"></i>
+                        <span class="menu-text"> 广告管理 </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Admin/Member/index')}">
+                        <i class="icon-dashboard"></i>
+                        <span class="menu-text"> 会员管理 </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{:U('Admin/Goodsclass/index')}">
+                        <i class="icon-list"></i>
+                        <span class="menu-text"> 分类管理 </span>
+                    </a>
+                </li>
+
+                   <li>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="icon-asterisk"></i>
+                            <span class="menu-text"> 商品管理 </span>
+
+                            <b class="arrow icon-angle-down"></b>
+                        </a>
+
+                        <ul class="submenu">
+
+                                <li>
+                                    <a href="{:U('Admin/Goodsissue/index')}">
+                                        <i class="icon-double-angle-right"></i>
+                                        商品发布
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{:U('Admin/Goodsup/index')}">
+                                        <i class="icon-double-angle-right"></i>
+                                        上架商品
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{:U('Admin/Goodsdown/index')}">
+                                        <i class="icon-double-angle-right"></i>
+                                        仓库商品
+                                    </a>
+                                </li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="{:U('Admin/Ordermanage/index')}">
+                            <i class="icon-bar-chart"></i>
+                            <span class="menu-text">  订单管理 </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{:U('Admin/Reviewmanage/index')}">
+                            <i class="icon-comment"></i>
+                            <span class="menu-text"> 评价管理 </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="{:U('Admin/Message/index')}">
+                        <i class="icon-book"></i>
+                        <span class="menu-text"> 留言管理 </span>
+                    </a>
+                </li>
+
+            </ul>
+
+            <div class="sidebar-collapse" id="sidebar-collapse">
+                <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+            </div>
+        </div>

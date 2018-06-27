@@ -1,0 +1,190 @@
+<extend name="Index:base" />
+<block name="stylecss">
+    <style>
+        .sel{
+            height:auto;
+            overflow: hidden;
+            border:1px solid #CCC;
+            padding:0px;
+            margin-bottom: 5px;
+        }
+        .sel-heading{
+            background: #EEE;
+            height:35px;
+            margin: 0px;
+            color: #2c79a6;
+        }
+        .sel label{
+            height: 30px;
+            line-height: 35px;
+            padding-left: 10px;
+            float: left;
+            margin-right: 10px;
+        }
+        .sel-input input{
+            border:1px solid bule;
+        }
+        .sel-title{
+            display: block;
+            height:35px;
+            line-height: 35px;
+            margin: 0px;
+            font-size: 16px;
+        }
+        .sel-body{
+            padding:20px;
+            height:auto;
+            overflow: hidden;
+        }
+        .childsel{
+            float: left;
+            margin: 5px;
+        }
+    </style>
+</block>
+<block name="content">
+    <div class="main-content">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <!-- 面包屑导航 -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="icon-home home-icon"></i>
+                    <a href="{:U('Admin/Index/index')}">首页</a>
+                </li>
+                <li>
+                    <a href="{:U('Admin/Grouplist/index')}">{$page['title']['prev']}</a>
+                </li>
+                <li class="active">
+                    {$page['title']['current']}
+                </li>
+            </ul>
+        </div>
+
+        <div class="page-content">
+            <!-- 页面导航 -->
+            <div class="page-header">
+                <h1>
+                    {$page['title']['current']}
+                    <a class="btn btn-info btn-sm pull-right" href="{:U('Admin/Grouplist/index')}">
+                        <i class="icon-reply icon-only"></i>
+                    </a>
+                </h1>
+            </div>
+
+            <div class="row" style="margin-top:35px;">
+                <div class="col-xs-12">
+                    <form class="form-horizontal" role="form" action="{:U('Admin/Grouplist/insertGroup')}" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right"> 角色名称 </label>
+                            <div class="col-sm-10">
+                                <input class="col-xs-10 col-sm-5" type="text" placeholder="请填写角色名称" name="title">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right"> 角色描述 </label>
+                            <div class="col-sm-10">
+                                <input class="col-xs-10 col-sm-5" type="text" placeholder="请填写角色描述" name="description">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right"> 是否启用 </label>
+                            <div class="col-sm-10">
+                                <label>
+                                    <input id="group-tap" class="ace ace-switch ace-switch-6" type="checkbox" checked>
+                                    <span class="lbl"></span>
+                                </label>
+                            </div>
+                            <input id="group-status" type="hidden" name="status" value="1">
+                        </div>
+                        
+                        <!-- 选择权限开始 -->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right"> 设置权限 </label>
+                            <div class="col-sm-10" id="selparent">
+                                <div id="accordion" class="col-xs-10 col-sm-12 no-padding">
+                                    <div class="sel-group" id="selclass">
+                                        <volist name="data" id="val">
+                                            <div class="sel">
+                                                <label>
+                                                    <input type="checkbox" id="checkAll-{$i}" class="ace ace-checkbox-2"/>
+                                                    <span class="lbl">全选</span>
+                                                </label>
+                                                <div class="sel-heading" data-toggle="collapse" data-parent="#selclass" data-target="#sel-{$i}">
+                                                    <span class="sel-title">
+                                                        {$val['moduleName']}
+                                                    </span>
+                                                </div>
+                                                <div id="sel-{$i}" class="sel-collapse collapse">
+                                                    <div class="sel-body" id="check-{$i}">
+                                                        <foreach name="rule[$val['id']]" item="vo">
+                                                            <div class="childsel">
+                                                                <input type="checkbox" class="ace ace-checkbox-2" name="rule[]" value="{$vo['id']}" />
+                                                                <span class="lbl">{$vo['title']}</span>
+                                                            </div>
+                                                        </foreach>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </volist>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 选择权限结束 -->
+
+                        <div class="clearfix form-actions">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button class="btn btn-info" type="submit">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="privatejs">
+    <script type="text/javascript">
+        $(function(){
+            //设置当前页面的菜单高亮显示 开始
+            var nownav = '#sidebar a[href*=Grouplist]';
+            var parentattr = $(nownav).parent().parent().attr("class");
+            $(nownav).parent().addClass('active');
+            if (parentattr == 'submenu') {
+                $(nownav).parent().parent().parent().addClass('active open');
+            };
+            //设置当前页面的菜单高亮显示 结束
+            $('#group-tap').click(function(){
+                if ($('#group-status').val()==1) {
+                    $('#group-status').val(0)
+                }else{
+                    $('#group-status').val(1)
+                }
+            });
+
+            //默认打开选项
+            $('#selclass').children().eq(0).children().eq(2).addClass('in');
+
+            //全选 
+            $("[id^=checkAll-]:checkbox").on('click',function(){
+                var num = $(this).prop('id').split('-')[1];
+                var divs = "#check-"+num;
+                $(divs+" :checkbox").prop("checked",this.checked);
+            });
+           
+            $('[name^=rule]:checkbox').click(function(){
+                var num = $(this).parent().parent().prop('id').split('-')[1];
+                var $tmp = $('#check-'+num+' :checkbox');
+                $("#checkAll-"+num).prop('checked',$tmp.length==$tmp.filter(':checked').length);
+            });
+        });
+    </script>
+</block>

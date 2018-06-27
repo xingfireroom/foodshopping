@@ -1,0 +1,264 @@
+[ 2018-03-28T16:48:51+08:00 ] ::1 /food/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000436s ]
+
+[ 2018-03-28T16:48:53+08:00 ] ::1 /food/index.php/Home/Index/viewCate
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000325s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000784s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000832s ]
+SQL: SHOW COLUMNS FROM `food_class_view` [ RunTime:0.027289s ]
+ERR: 1146:Table 'bdm256143291_db.food_class_view' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `food_class_view`
+SQL: SHOW COLUMNS FROM `food_classify` [ RunTime:0.027503s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `parentid` = 0 ) ORDER BY cid asc  [ RunTime:0.029123s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 367 ) LIMIT 1   [ RunTime:0.027028s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-367%' ) ORDER BY bpath asc  [ RunTime:0.027310s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 371 ) LIMIT 1   [ RunTime:0.029331s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-371%' ) ORDER BY bpath asc  [ RunTime:0.027939s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 375 ) LIMIT 1   [ RunTime:0.027684s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-375%' ) ORDER BY bpath asc  [ RunTime:0.027752s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 379 ) LIMIT 1   [ RunTime:0.027366s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-379%' ) ORDER BY bpath asc  [ RunTime:0.029043s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 380 ) LIMIT 1   [ RunTime:0.027521s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-380%' ) ORDER BY bpath asc  [ RunTime:0.029803s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000072s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000157s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037532s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037665s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000991s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001053s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001495s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001555s ]
+
+[ 2018-03-28T16:48:53+08:00 ] ::1 /food/index.php/Home/Showcart/viewNums
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000511s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000962s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001022s ]
+SQL: SHOW COLUMNS FROM `food_goods` [ RunTime:0.028519s ]
+NOTIC: [8] Undefined index: cart D:\phpStudy\WWW\food\Application\Home\Controller\ShowcartController.class.php 第 234 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000975s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001026s ]
+
+[ 2018-03-28T16:48:53+08:00 ] ::1 /food/index.php/home/Index/nav
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000450s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000641s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000678s ]
+SQL: SHOW COLUMNS FROM `food_nav` [ RunTime:0.028921s ]
+SQL: SELECT * FROM `food_nav` ORDER BY nsort asc  [ RunTime:0.028611s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002730s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002844s ]
+
+[ 2018-03-28T16:49:08+08:00 ] ::1 /food/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000388s ]
+
+[ 2018-03-28T16:49:08+08:00 ] ::1 /food/index.php/Home/Showcart/viewNums
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000331s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000906s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000973s ]
+SQL: SHOW COLUMNS FROM `food_goods` [ RunTime:0.029670s ]
+NOTIC: [8] Undefined index: cart D:\phpStudy\WWW\food\Application\Home\Controller\ShowcartController.class.php 第 234 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002482s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002589s ]
+
+[ 2018-03-28T16:49:09+08:00 ] ::1 /food/index.php/home/Index/nav
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000561s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000954s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001034s ]
+SQL: SHOW COLUMNS FROM `food_nav` [ RunTime:0.028385s ]
+SQL: SELECT * FROM `food_nav` ORDER BY nsort asc  [ RunTime:0.027857s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002663s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002774s ]
+
+[ 2018-03-28T16:49:09+08:00 ] ::1 /food/index.php/Home/Index/viewCate
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000624s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001058s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001139s ]
+SQL: SHOW COLUMNS FROM `food_class_view` [ RunTime:0.027038s ]
+ERR: 1146:Table 'bdm256143291_db.food_class_view' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `food_class_view`
+SQL: SHOW COLUMNS FROM `food_classify` [ RunTime:0.027367s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `parentid` = 0 ) ORDER BY cid asc  [ RunTime:0.026667s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 367 ) LIMIT 1   [ RunTime:0.029076s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-367%' ) ORDER BY bpath asc  [ RunTime:0.026714s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 371 ) LIMIT 1   [ RunTime:0.026540s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-371%' ) ORDER BY bpath asc  [ RunTime:0.027122s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 375 ) LIMIT 1   [ RunTime:0.026654s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-375%' ) ORDER BY bpath asc  [ RunTime:0.026546s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 379 ) LIMIT 1   [ RunTime:0.026713s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-379%' ) ORDER BY bpath asc  [ RunTime:0.027022s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 380 ) LIMIT 1   [ RunTime:0.026637s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-380%' ) ORDER BY bpath asc  [ RunTime:0.027324s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000064s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000145s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021985s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022097s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000941s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001306s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001367s ]
+
+[ 2018-03-28T16:49:57+08:00 ] ::1 /food/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+
+[ 2018-03-28T16:49:58+08:00 ] ::1 /food/index.php/Home/Index/viewCate
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000480s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000984s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001047s ]
+SQL: SHOW COLUMNS FROM `food_class_view` [ RunTime:0.028448s ]
+ERR: 1146:Table 'bdm256143291_db.food_class_view' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `food_class_view`
+SQL: SHOW COLUMNS FROM `food_classify` [ RunTime:0.029075s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `parentid` = 0 ) ORDER BY cid asc  [ RunTime:0.029910s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 367 ) LIMIT 1   [ RunTime:0.028353s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-367%' ) ORDER BY bpath asc  [ RunTime:0.029259s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 371 ) LIMIT 1   [ RunTime:0.028139s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-371%' ) ORDER BY bpath asc  [ RunTime:0.028627s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 375 ) LIMIT 1   [ RunTime:0.028953s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-375%' ) ORDER BY bpath asc  [ RunTime:0.029465s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 379 ) LIMIT 1   [ RunTime:0.028304s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-379%' ) ORDER BY bpath asc  [ RunTime:0.028028s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 380 ) LIMIT 1   [ RunTime:0.028091s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-380%' ) ORDER BY bpath asc  [ RunTime:0.028451s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000079s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000183s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016223s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016317s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001290s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001367s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001976s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002060s ]
+
+[ 2018-03-28T16:49:58+08:00 ] ::1 /food/index.php/home/Index/nav
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000521s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002092s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002152s ]
+SQL: SHOW COLUMNS FROM `food_nav` [ RunTime:0.026992s ]
+SQL: SELECT * FROM `food_nav` ORDER BY nsort asc  [ RunTime:0.026422s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001828s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001911s ]
+
+[ 2018-03-28T16:49:58+08:00 ] ::1 /food/index.php/Home/Showcart/viewNums
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000744s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000885s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000963s ]
+SQL: SHOW COLUMNS FROM `food_goods` [ RunTime:0.029318s ]
+NOTIC: [8] Undefined index: cart D:\phpStudy\WWW\food\Application\Home\Controller\ShowcartController.class.php 第 234 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000894s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000930s ]
+
+[ 2018-03-28T16:50:23+08:00 ] ::1 /food/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+
+[ 2018-03-28T16:50:23+08:00 ] ::1 /food/index.php/Home/Index/viewCate
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000447s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000821s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000893s ]
+SQL: SHOW COLUMNS FROM `food_class_view` [ RunTime:0.054661s ]
+ERR: 1146:Table 'bdm256143291_db.food_class_view' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `food_class_view`
+SQL: SHOW COLUMNS FROM `food_classify` [ RunTime:0.027157s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `parentid` = 0 ) ORDER BY cid asc  [ RunTime:0.027233s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 367 ) LIMIT 1   [ RunTime:0.026758s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-367%' ) ORDER BY bpath asc  [ RunTime:0.027196s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 371 ) LIMIT 1   [ RunTime:0.026637s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-371%' ) ORDER BY bpath asc  [ RunTime:0.027239s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 375 ) LIMIT 1   [ RunTime:0.028205s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-375%' ) ORDER BY bpath asc  [ RunTime:0.028893s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 379 ) LIMIT 1   [ RunTime:0.026761s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-379%' ) ORDER BY bpath asc  [ RunTime:0.026994s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 380 ) LIMIT 1   [ RunTime:0.027891s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-380%' ) ORDER BY bpath asc  [ RunTime:0.026927s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000051s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000113s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025399s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025482s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000895s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000954s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001301s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001355s ]
+
+[ 2018-03-28T16:50:24+08:00 ] ::1 /food/index.php/Home/Showcart/viewNums
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000506s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000801s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000856s ]
+SQL: SHOW COLUMNS FROM `food_goods` [ RunTime:0.026944s ]
+NOTIC: [8] Undefined index: cart D:\phpStudy\WWW\food\Application\Home\Controller\ShowcartController.class.php 第 234 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003117s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003266s ]
+
+[ 2018-03-28T16:50:24+08:00 ] ::1 /food/index.php/home/Index/nav
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000777s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000835s ]
+SQL: SHOW COLUMNS FROM `food_nav` [ RunTime:0.032111s ]
+SQL: SELECT * FROM `food_nav` ORDER BY nsort asc  [ RunTime:0.028525s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001920s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002010s ]
+

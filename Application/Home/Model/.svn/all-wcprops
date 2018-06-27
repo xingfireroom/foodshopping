@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/sanxia/!svn/ver/345/Application/Home/Model
+END
+AttrViewModel.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/sanxia/!svn/ver/281/Application/Home/Model/AttrViewModel.class.php
+END
+BrandClassViewModel.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/sanxia/!svn/ver/221/Application/Home/Model/BrandClassViewModel.class.php
+END
+PageModel.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/sanxia/!svn/ver/281/Application/Home/Model/PageModel.class.php
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/sanxia/!svn/ver/221/Application/Home/Model/index.html
+END
+ClassViewModel.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/sanxia/!svn/ver/306/Application/Home/Model/ClassViewModel.class.php
+END
+GoodsSearchModel.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/sanxia/!svn/ver/345/Application/Home/Model/GoodsSearchModel.class.php
+END
+WebConfigModel.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/sanxia/!svn/ver/312/Application/Home/Model/WebConfigModel.class.php
+END

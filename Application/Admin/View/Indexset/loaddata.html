@@ -1,0 +1,42 @@
+<foreach name="ads" item="ad">
+<tr style="height:50px;">
+    <td>{$ad['fadid']}</td>
+    <td>{$ad['fadtitle']}</td>
+    <td>{$ad['fadurl']}</td>
+    <td>
+        <span class="label label-sm label-warning">
+            <if condition="$ad['fadstarttime']" >
+            {$ad['fadstarttime']|date="Y-m-d",###}
+            </if>
+            --
+            <if condition="$ad['fadendtime']" >
+                {$ad['fadendtime']|date="Y-m-d",###}
+            </if>
+        </span>
+    </td>
+    <td>
+        <img src="__PUBLIC__/Uploads/{$ad['fadpic']|explode='/',###|implode='/th_',###}" class="img-responsive" alt="{$ad['fadpic']}" width="80">
+    </td>
+    <td>
+        <if condition="$ad['fadplace'] eq 1"> 左侧幻灯片
+        <elseif condition="$ad['fadplace'] eq 2"/> 中间推荐位
+        <elseif condition="$ad['fadplace'] eq 3"/> 右侧广告
+        </if>
+    </td>
+    <td>
+        <div class="visible-md visible-lg visible-sm visible-xs action-buttons">
+            <a name="table-view" class="blue" data-toggle="modal" href="#viewModal">
+                <i class="icon-zoom-in bigger-130"></i>
+            </a>
+
+            <a name="table-edit" class="green" href="{:U('Admin/Indexset/editPic',array('id'=>$ad['fadid']))}">
+                <i class="icon-pencil bigger-130"></i>
+            </a>
+
+            <a name="del_{$ad['fadid']}" ytag="pic" class="red" data-toggle="modal" href="#deleteModal">
+                <i class="icon-trash bigger-130"></i>
+            </a>
+        </div>
+    </td>
+</tr>
+</foreach>                                      

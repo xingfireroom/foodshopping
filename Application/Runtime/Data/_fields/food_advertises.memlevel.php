@@ -1,0 +1,1 @@
+a:7:{i:0;s:3:"lid";i:1;s:6:"llevel";i:2;s:5:"lname";i:3;s:5:"licon";i:4;s:10:"needscores";s:3:"_pk";s:3:"lid";s:5:"_type";a:5:{s:3:"lid";s:21:"mediumint(8) unsigned";s:6:"llevel";s:10:"tinyint(1)";s:5:"lname";s:11:"varchar(20)";s:5:"licon";s:12:"varchar(255)";s:10:"needscores";s:12:"mediumint(8)";}}

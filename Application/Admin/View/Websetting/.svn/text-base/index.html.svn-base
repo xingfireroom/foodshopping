@@ -1,0 +1,202 @@
+<extend name="Index:base" />
+<block name="content">
+
+				<!-- 中间部分开始 -->
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<!-- 面包屑导航 -->
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="__APP__/admin/index">首页</a>
+							</li>
+							<li class="active">基本配置</li>
+						</ul><!-- .breadcrumb -->
+
+					</div>
+
+					<div class="page-content">
+
+						<!-- 页面导航 -->
+						<div class="page-header">
+							<h1>
+								修改基本配置
+								<a class="btn btn-info btn-sm pull-right" href="__CONTROLLER__/index">
+									<i class="icon-reply icon-only"></i>
+								</a>
+							</h1>
+						</div>
+
+						<div class="row" style="margin-top:35px;">
+							<div class="col-xs-12">
+								<form class="form-horizontal" role="form" action="__CONTROLLER__/update" method="post" enctype="multipart/form-data">
+									<input type="hidden" name="wid" value="{$data.wid}" />
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right"> 网站名称 </label>
+										<div class="col-sm-10">
+											<input class="col-xs-10 col-sm-5" type="text"  name="wname" value="{$data.wname}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right"> 网站描述 </label>
+										<div class="col-sm-10">
+											<input class="col-xs-10 col-sm-5" type="text"  name="wdescribe" value="{$data.wdescribe}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right"> 微博 </label>
+										<div class="col-sm-10">
+											<input class="col-xs-10 col-sm-5" type="text" name="weibo" value="{$data.weibo}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right"> QQ </label>
+										<div class="col-sm-10">
+											<input class="col-xs-10 col-sm-5" type="text" name="qqnum" value="{$data.qqnum}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right"> 微信 </label>
+										<div class="col-sm-10">
+											<input class="col-xs-10 col-sm-5" type="text" name="weixin" value="{$data.weixin}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right"> 联系方式 </label>
+										<div class="col-sm-10">
+											<input class="col-xs-10 col-sm-5" type="text" name="wcontact" value="{$data.wcontact}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right"> 商家地址 </label>
+										<div class="col-sm-10">
+											<input class="col-xs-10 col-sm-5" type="text" name="wlocation" value="{$data.wlocation}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right"> 备案号 </label>
+										<div class="col-sm-10">
+											<input class="col-xs-10 col-sm-5" type="text" name="wrecords" value="{$data.wrecords}">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label no-padding-right"> 代码统计 </label>
+										<div class="col-sm-10">
+											<input class="col-xs-10 col-sm-5" type="text" name="wcode" value="{$data.wcode}">
+										</div>
+									</div>
+
+
+									<!--文件上传-->
+									<div class="form-group" style="margin-bottom:0px;">
+										<label class="col-sm-2 control-label no-padding-right"> 网站logo </label>
+										<div class="col-sm-10">
+											<div class="ace-file-input no-padding col-xs-10 col-sm-5">
+												<input style="height:30px;" type="file" id="id-input-file-2" name="wlogo" 
+												 />
+											</div>
+											<img src="__PUBLIC__/Uploads/{$data.wlogo|explode='/',###|implode='/w_',###}" />
+										</div>
+
+									</div>
+								
+								
+
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-2 col-md-10">
+											<button class="btn btn-info" type="submit">
+												<i class="icon-ok bigger-110"></i>
+												提交
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="icon-undo bigger-110"></i>
+												重置
+											</button>
+										</div>
+									</div>
+								</form>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+	</block>
+	<block name="privatejs">
+
+		<!-- inline scripts related to this page -->
+
+		<script type="text/javascript">
+			jQuery(function($) {
+
+				//设置当前页面的菜单高亮显示 开始
+				var nownav = "#sidebar a[href*=Websetting]";
+				var parentattr = $(nownav).parent().parent().attr("class");
+				$(nownav).parent().addClass('active');
+				if (parentattr == 'submenu') {
+					$(nownav).parent().parent().parent().addClass('active open');
+				};
+				//设置当前页面的菜单高亮显示 结束
+				$('#id-input-file-2').ace_file_input({
+					no_file:'选择广告图片 ...',
+					btn_choose:'上传',
+					btn_change:'修改',
+					droppable:false,
+					onchange:null,
+					thumbnail:false //| true | large
+					//whitelist:'gif|png|jpg|jpeg'
+					//blacklist:'exe|php'
+					//onchange:''
+					//
+				});				
+			
+				//文件上传
+				$('#id-file-format').removeAttr('checked').on('change', function() {
+					var before_change
+					var btn_choose
+					var no_icon
+					if(this.checked) {
+						btn_choose = "Drop images here or click to choose";
+						no_icon = "icon-picture";
+						before_change = function(files, dropped) {
+							var allowed_files = [];
+							for(var i = 0 ; i < files.length; i++) {
+								var file = files[i];
+								if(typeof file === "string") {
+									//IE8 and browsers that don't support File Object
+									if(! (/\.(jpe?g|png|gif|bmp)$/i).test(file) ) return false;
+								}
+								else {
+									var type = $.trim(file.type);
+									if( ( type.length > 0 && ! (/^image\/(jpe?g|png|gif|bmp)$/i).test(type) )
+											|| ( type.length == 0 && ! (/\.(jpe?g|png|gif|bmp)$/i).test(file.name) )//for android's default browser which gives an empty string for file.type
+										) continue;//not an image so don't keep this file
+								}
+								
+								allowed_files.push(file);
+							}
+							if(allowed_files.length == 0) return false;
+			
+							return allowed_files;
+						}
+					}
+					else {
+						btn_choose = "Drop files here or click to choose";
+						no_icon = "icon-cloud-upload";
+						before_change = function(files, dropped) {
+							return files;
+						}
+					}
+					var file_input = $('#id-input-file-3');
+					file_input.ace_file_input('update_settings', {'before_change':before_change, 'btn_choose': btn_choose, 'no_icon':no_icon})
+					file_input.ace_file_input('reset_input');
+				});
+
+			});
+		</script>
+</block>
+

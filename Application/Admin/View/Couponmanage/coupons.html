@@ -1,0 +1,143 @@
+<extend name="Index:base" />
+<block name="content">
+    <div class="main-content">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <!-- 面包屑导航 -->
+            <ul class="breadcrumb">
+                <li>
+                    <i class="icon-home home-icon"></i>
+                    <a href="{:U('Admin/Index/index')}">首页</a>
+                </li>
+                <li>
+                    <a href="{:U('Admin/Couponmanage/index')}">{$page['title']['prev']}</a>
+                </li>
+                <li class="active">
+                    {$page['title']['current']}
+                </li>
+            </ul>
+        </div>
+
+        <div class="page-content">
+            <!-- 页面导航 -->
+            <div class="page-header">
+                <h1>
+                    {$page['title']['current']}
+                    <a class="btn btn-info btn-sm pull-right" href="{:U('Admin/Couponmanage/index')}">
+                        <i class="icon-reply icon-only"></i>
+                    </a>
+                </h1>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th class="width-15">优惠券名称</th>
+                                    <th class="width-15">优惠券折扣</th>
+                                    <th class="width-15">优惠券编码</th>
+                                    <th class="width-10">领取人</th>
+                                    <th class="width-15">
+                                        <div class="dropdown" id="select-search">
+                                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                                <span>状态</span>
+                                                <i class="icon-caret-down bigger-110 width-auto"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-info">
+                                                <li>
+                                                    <a href="#dropdown_all" >所有状态</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#dropdown_0" >未领取</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#dropdown_1" >已领取</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#dropdown_2" >已使用</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#dropdown_3" >已过期</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </th>
+                                    <th class="width-15">优惠券有效期</th>
+                                </tr>
+                            </thead>
+                            <!--一行的开始-->
+                            <!--遍历查询到的数据-->
+                            <tbody>
+                                <volist name="data" id="vo">
+                                <tr>
+                                    <td>
+                                        {$vo['cpid']}
+                                    </td>
+                                    <td>{$vo['cgname']}</td>
+                                    <td>{$vo['cpcode']}</td>
+                                    <td>满{$vo['cgspend']}减少{$vo['cgreduce']}</td>                                             
+                                    <td>{$vo['uname']}</td>
+                                    <td>
+                                        <switch name="$vo['cpstate']">
+                                            <case value="1"><span class="label label-success">已领取</span></case>
+                                            <case value="2"><span class="label label-info">已使用</span></case>
+                                            <case value="2"><span class="label label-inverse">已过期</span></case>
+                                            <default /><span class="label label-grey">未领取</span>
+                                        </switch>
+                                    </td>
+                                    <td>
+                                        <span class="label label-sm label-warning">
+                                            <if condition="$vo['cgstarttime']" >
+                                            {$vo['cgstarttime']|date="Y-m-d",###}
+                                            </if>
+                                            --
+                                            <if condition="$vo['cgendtime']" >
+                                                {$vo['cgendtime']|date="Y-m-d",###}
+                                            </if>
+                                        </span>
+                                    </td>  
+                                </tr>
+                                <!--遍历结束-->
+                                </volist>
+
+                                <tr style="padding:0px;">
+                                    <td colspan=9>{$pages}</td>
+                                </tr>
+                                <!--一行的结束--> 
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div><!-- /.main-content -->
+    <!-- 中间部分结束 -->
+</block>
+<block name="privatejs">
+    <script type="text/javascript">
+        jQuery(function($) {
+            //设置当前页面的菜单高亮显示 开始
+            var nownav = "#sidebar a[href*=Couponmanage]";
+            var parentattr = $(nownav).parent().parent().attr("class");
+            $(nownav).parent().addClass('active');
+            if (parentattr == 'submenu') {
+                $(nownav).parent().parent().parent().addClass('active open');
+            };
+            //设置当前页面的菜单高亮显示 结束
+
+
+            //选择搜索
+            $('#select-search ul li a').on('click',function(){
+                $('#select-search>a>span').html($(this).html());
+                $searchid = $(this).attr('href').split('_')[1];
+                if ($searchid == 'all') {
+                    location.href = "__APP__/Admin/Couponmanage/coupons/id/{$Think.get.id}";
+                    return;
+                };
+                location.href = "__APP__/Admin/Couponmanage/coupons/id/{$Think.get.id}/cpstate/"+$searchid;
+            });
+        });
+    </script>
+</block>

@@ -1,0 +1,229 @@
+<extend name="Index:default" />
+<block name="stylecss">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/index.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/search_v21.css">
+    <style>
+        .grid_c1{
+            width: 1190px;
+        }
+    </style>
+</block>
+<block name="header"><div class="ic_header"></block>
+<block name="nav"><div class="ic_nav" id="j_nav"></block>
+<block name="footer"><div class="ic_footer"></block>
+<block name="cate_css"><div class="mod_cate mod_cate_on" id="category_container"></block>
+<block name="privatejs">
+<script src="__PUBLIC__/home/js/index.js"></script>
+<script type="text/javascript" src="__PUBLIC__/home/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(
+        function($){
+            $(".lazy").lazyload({
+                 placeholder :"__PUBLIC__/home/images/icon/loading.gif",
+                 effect: "fadeIn"
+            });
+    });
+</script>
+</block>
+<block name="topad">
+    <div class="mod_fbanner" id="j_fbanner">
+        <a target="_blank" href="{$indexad[1][0]['adurl']}" ><img src="__PUBLIC__/Uploads/{$indexad[1][0]['adpic']}"></a>
+        <i class="mod_fbanner_close" id="j_fbanner_close">close</i>
+    </div>
+</block>
+<block name="content">
+    <div class="ic_content">
+        <div class="core">
+            <div class="grid_c1">
+                <div class="grid_s"></div>
+                <div class="grid_m">
+                    <!-- 幻灯片 -->
+                    <div class="slider" id="j_main_slider">
+                        <ul class="slider_img">
+                            <volist name="indexad[2]" id="filmad">
+                                <if condition="$i lt 9">
+                                    <if condition="$i eq 1">
+                                        <li class="" style="display: list-item; opacity: 1;">
+                                            <else/>
+                                        <li class="hide" style="opacity: 1; display: none;">
+                                    </if>
+                                    <a target="_blank" href="__MODULE__/Goods/index/gid/{$filmad['adurl']}">
+                                        <img src="__PUBLIC__/Uploads/{$filmad['adpic']}" width="1000" height="330" alt="{$filmad['adtitle']}">
+                                    </a>
+                                    </li>
+                                </if>
+                            </volist>
+                        </ul>
+                        <ul class="slider_trigger" id="j_strigger">
+                            <volist name="indexad[2]" id="filmad">
+                                <if condition="$i lt 9">
+                                    <if condition="$i eq 1">
+                                        <li class="on" index="1">
+                                    <else/>
+                                        <li class="" index="{$i}">
+                                    </if>
+                                        {$i}
+                                    </li>
+                                </if>
+                            </volist>
+                        </ul>
+                        <a href="javascript:;" class="slider_go_prev hide" id="j_sprev"></a>
+                        <a href="javascript:;" class="slider_go_next hide" id="j_snext"></a>
+                    </div>
+
+                    <i class="daily_bod"></i>
+
+                    <!-- 限时抢购 -->
+                    <div class="dailybeta">
+                        <div class="dailybeta_hd">
+                            <p class="dailybeta_tit"><i class="dailybeta_tit_ico">&nbsp;</i><b>优惠专区，限时抢购</b></p>
+                            <p class="dailybeta_time_p1">还剩</p>
+                            <div class="dailybeta_time" id="j_daily_timer">
+                                <div class="dailybeta_time_item timer_h" id="j_daily_h">14</div>
+                                <i></i>
+                                <div class="dailybeta_time_item timer_i" id="j_daily_m">18</div>
+                                <i></i>
+                                <div class="dailybeta_time_item timer_s" id="j_daily_s">28</div>
+                            </div>
+                            <p class="dailybeta_time_p2">结束</p>
+                        </div>
+                        <div class="dailybeta_bd">
+
+                            <!-- 抢购商品列表 -->
+                            <ul class="dailybeta_goods">
+                            <volist name="indexad[3]" id="rushad">
+                                {$rushad['title']}
+                                <if condition="$i lt 9">
+                                    <li>
+                                        <div class="mod_goods mod_goods_w100">
+                                            <div class="mod_goods_img load_effect">
+                                                <img class="lazy" src="__PUBLIC__/home/images/icon/loading-60.gif" data-original="__PUBLIC__/Uploads/{$rushad['adpic']}" alt="{$filmad['adtitle']}">
+                                                <b class="hide "></b>
+                                            </div>
+                                            <div class="mod_goods_info">
+                                                <p class="mod_goods_tit">
+                                                    {$rushad['adtitle']}
+                                                </p>
+                                                <p class="mod_goods_price">
+                                                    <span class="mod_price mod_price_now"><span>优惠低价</span></span>
+                                                </p>
+                                                <div class="mod_goods_stock">
+                                                    <em>库存</em>
+                                                    <span><i class="mod_goods_stock_bg2" w="style=&quot;width:100%&quot;" style="width: {:rand(10,60)}%;"></i></span>
+                                                </div>
+                                                <p class="dailybeta_goods_btn_wrap">
+                                                    <a href="__MODULE__/Goods/index/gid/{$rushad['adurl']}" class="dailybeta_goods_btn">立即抢</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </if>
+                            </volist>
+                            </ul>
+                            <ul class="dailybeta_goods hide" id="POS_1_300034">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 推荐 -->
+        <div class="grid_c1 food_mod_f f1 goods" ftag="floorsnum">
+            <div class="food_mod_f_hd">
+                <div class="food_mod_f_tit">
+                    <h2>热度推荐</h2>
+                </div>
+            </div>
+            <ul class="goods_ul" id="itemList" style="width:100%">
+                <volist name="hot" id="goodsvo">
+                    <li style="cursor: pointer;width:205px;" class="goods_li">
+                        <div class="mod_goods">
+                            <div class="mod_goods_img">
+                                <a class="link_pic" target="_blank" href="__APP__/Home/Goods/index/gid/{$goodsvo['gid']}" pos="1" >
+                                    <img class="lazy" iguid="0" src="__PUBLIC__/home/images/icon/loading-200.gif" data-original="__PUBLIC__/Goodsuploads/{$goodsvo['gpic']}" height="200" width="200">
+                                </a>
+                            </div>
+                            <div class="mod_goods_info">
+                                <p class="mod_goods_promo" title=""></p>
+                                <p class="mod_goods_tit"><a href="__APP__/Home/Goods/index/gid/{$goodsvo['gid']}" target="_blank" title="{$goodsvo['gname']}">{$goodsvo['gname']}</a></p>
+                                <p class="mod_goods_price">
+                                            <span class="mod_price">
+                                                <i>¥</i><span>{$goodsvo['goldprice']}.00</span>
+                                            </span>
+                                    <span class="goods_comments"><a target="_blank" href="__APP__/Home/Goods/index/gid/{$goodsvo['gid']}" pos="201" ><b>{$goodsvo['gsellnums']}</b>销量</a></span>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+
+        <volist name="floors" id="fval" key="k">
+            <div class="grid_c1 food_mod_f f1" id="floor_{$k}" ftag="floorsnum">
+                <div class="food_mod_f_hd">
+                    <div class="food_mod_f_tit">
+                     <h2>推荐{$k}<a target="_blank" href="">{$fval['cname']}</a></h2>
+                    </div>
+                </div>
+                <div class="food_mod_f_bd">
+
+                    <!-- 推荐幻灯片 -->
+                    <div class="grid_s">
+                        <div class="food_mod_extimg">
+                            <a target="_blank" href="__MODULE__/Goods/index/gid/{$fval['picad'][1][0]['fadurl']}">
+                                <img class="lazy" src="__PUBLIC__/home/images/icon/loading-190.gif" data-original="__PUBLIC__/Uploads/{$fval['picad'][1][0]['fadpic']}">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="grid_m">
+                        <div class="food_mod_fgoods_wrap">
+                            <ul class="food_mod_fgoods" id="POS_1_300021" >
+                                <!-- 中间推荐位 -->
+                                <volist name="fval['picad'][2]" id="fcenter">
+                                    <if condition="$i lt 5">
+                                        <li class="food_mod_fgoods_high">
+                                            <a target="_blank" href="__MODULE__/Goods/index/gid/{$fcenter['fadurl']}">
+                                                <img class="lazy" src="__PUBLIC__/home/images/icon/loading-210.gif" data-original="__PUBLIC__/Uploads/{$fcenter['fadpic']}">
+                                            </a>
+
+                                        </li>
+                                    </if>
+                                </volist>
+
+                                <!-- 热销推荐 -->
+                                <volist name="fval['goods']" id="goods">
+                                    <li class="food_mod_fgoods_low">
+                                        <div class="mod_goods mod_goods_w80" _loaded="true">
+                                            <div class="mod_goods_img load_effect">
+                                                <a target="_blank" href="__APP__/Home/Goods/index/gid/{$goods['gid']}">
+                                                <img class="lazy" src="__PUBLIC__/home/images/icon/loading-60.gif" data-original="__PUBLIC__/Goodsuploads/{$goods['gpic']}" width="80" height="80">
+                                                </a>
+                                            </div>
+                                            <div class="mod_goods_info">
+                                                <p class="mod_goods_promo"><a href="__APP__/Home/Goods/index/gid/{$goods['gid']}">{$goods['gname']}</a></p>
+                                                <p class="mod_goods_price"><span class="mod_price"><i>¥</i><span>{$goods['goldprice']}.00</span></span></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </volist>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 右侧广告 -->
+                    <div class="grid_e">
+                        <div class="food_mod_extimg">
+                            <a target="_blank" href="__MODULE__/Goods/index/gid/{$fval['picad'][3][0]['fadurl']}">
+                            <img class="lazy" src="__PUBLIC__/home/images/icon/loading-190.gif" data-original="__PUBLIC__/Uploads/{$fval['picad'][3][0]['fadpic']}">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </volist>
+    </div>    
+    <div class="mod_backtop hide" id="j_backtop">
+        <a href="javascript:" title="回顶部" ytag="72300">回顶部</a>
+    </div>
+</block>

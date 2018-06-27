@@ -1,0 +1,39 @@
+[ 2018-05-02T23:14:17+08:00 ] ::1 /dashboard/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000870s ]
+
+[ 2018-05-02T23:14:27+08:00 ] ::1 /dashboard/index.php/Home/Showcart/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000055s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002644s ]
+
+[ 2018-05-02T23:14:27+08:00 ] ::1 /dashboard/index.php/Home/Showcart/showcart_files/gb.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000634s ]
+ERR: 非法操作:showcart_files
+
+[ 2018-05-02T23:14:27+08:00 ] ::1 /dashboard/index.php/Home/Showcart/showcart_files/gb_002.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000901s ]
+ERR: 非法操作:showcart_files
+
+[ 2018-05-02T23:14:27+08:00 ] ::1 /dashboard/index.php/Home/Showcart/showcart_files/cart_v2.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000676s ]
+ERR: 非法操作:showcart_files
+
+[ 2018-05-02T23:14:27+08:00 ] ::1 /dashboard/index.php/Home/Showcart/showcart_files/0.jpeg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000822s ]
+ERR: 非法操作:showcart_files
+
+[ 2018-05-02T23:14:32+08:00 ] ::1 /dashboard/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000725s ]
+

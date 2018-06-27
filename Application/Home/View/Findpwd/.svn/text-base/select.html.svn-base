@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{$title}</title>
+	<link rel="stylesheet" href="__PUBLIC__/home/css/findpwd_style.css">
+</head>
+<body>
+	<nav class="find_nav">
+	<div class="find_nav1">
+		<div class="find_logo"><img src="__PUBLIC__/home/images/find.jpg" alt="" /></div>
+		<div class="find_info">
+			<ul>
+				<li><a href="__APP__/home/login">登录</a></li>
+				<li>求助</li>
+				<li>举报</li>
+				<li>反馈意见</li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+	<div class="find_navigation">
+	<div class="find_nav_content">
+		<ul>
+			<li>首页</li>
+			<li>密保工具</li>
+			<li>账号保护</li>
+			<li>密码管理</li>
+			<li>安全学堂</li>
+		</ul>
+	</div>
+	</div>	
+	<!--表单开头-->
+	<div class="find_main">
+		<div style="height:2px;"></div>
+		<div class="find_main_content">
+		<div class="find_main_manage">
+			<ul>
+				<li style="color:rgb(57,136,202)">密码管理&nbsp;></li>
+				<li style="text-align:left;">找回密码</li>
+			</ul>
+		</div>
+		<div class="find_form">
+		<div class="find_email">
+			<div class="find_email2" style="color:red;">密码已经发送到您的邮箱请注意查收</div>
+		</div>
+		</div>
+		<div class="find_common">
+			<img src="__PUBLIC__/home/images/find-common.jpg" alt="">
+		</div>
+		</div>
+	</div>
+	<!--表单结束-->
+
+  
+
+
+
+
+</body>
+</html>

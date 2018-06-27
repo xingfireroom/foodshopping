@@ -1,0 +1,212 @@
+[ 2018-04-27T14:29:17+08:00 ] ::1 /food/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000803s ]
+ERR: Unknown database 'food'
+
+[ 2018-04-27T14:40:11+08:00 ] ::1 /food/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000818s ]
+ERR: Unknown database 'food'
+
+[ 2018-04-27T15:24:29+08:00 ] ::1 /dashboard/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000304s ]
+ERR: Unknown database 'food'
+
+[ 2018-04-27T15:24:30+08:00 ] ::1 /dashboard/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000313s ]
+ERR: Unknown database 'food'
+
+[ 2018-04-27T15:26:10+08:00 ] ::1 /dashboard/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000069s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001781s ]
+ERR: Unknown database 'food'
+
+[ 2018-04-27T15:26:10+08:00 ] ::1 /dashboard/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000327s ]
+ERR: Unknown database 'food'
+
+[ 2018-04-27T15:26:11+08:00 ] ::1 /dashboard/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000311s ]
+ERR: Unknown database 'food'
+
+[ 2018-04-27T15:26:11+08:00 ] ::1 /dashboard/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000306s ]
+ERR: Unknown database 'food'
+
+[ 2018-04-27T15:27:06+08:00 ] ::1 /dashboard/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000314s ]
+
+[ 2018-04-27T15:27:11+08:00 ] ::1 /dashboard/index.php/home/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000378s ]
+
+[ 2018-04-27T15:27:15+08:00 ] ::1 /dashboard/index.php/home/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000307s ]
+
+[ 2018-04-27T15:27:15+08:00 ] ::1 /dashboard/index.php/Home/Register/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000448s ]
+
+[ 2018-04-27T15:27:19+08:00 ] ::1 /dashboard/index.php/home/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000312s ]
+
+[ 2018-04-27T15:28:45+08:00 ] ::1 /dashboard/index.php/home/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000357s ]
+
+[ 2018-04-27T15:28:51+08:00 ] ::1 /dashboard/index.php/home/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000401s ]
+
+[ 2018-04-27T15:28:51+08:00 ] ::1 /dashboard/index.php/Home/Register/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000073s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000727s ]
+
+[ 2018-04-27T15:28:54+08:00 ] ::1 /dashboard/index.php/home/Index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000319s ]
+
+[ 2018-04-27T15:29:06+08:00 ] ::1 /dashboard/index.php/Home/Goods/index/gid/105
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000306s ]
+
+[ 2018-04-27T15:30:06+08:00 ] ::1 /dashboard/index.php/home/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000361s ]
+
+[ 2018-04-27T15:30:08+08:00 ] ::1 /dashboard/index.php/Home/Goods/index/gid/100
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000055s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001064s ]
+
+[ 2018-04-27T15:30:29+08:00 ] ::1 /dashboard/index.php/Home/Showcart/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000305s ]
+
+[ 2018-04-27T15:30:29+08:00 ] ::1 /dashboard/index.php/Home/Showcart/showcart_files/gb_002.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000370s ]
+ERR: 非法操作:showcart_files
+
+[ 2018-04-27T15:30:29+08:00 ] ::1 /dashboard/index.php/Home/Showcart/showcart_files/gb.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000591s ]
+ERR: 非法操作:showcart_files
+
+[ 2018-04-27T15:30:29+08:00 ] ::1 /dashboard/index.php/Home/Showcart/showcart_files/cart_v2.css
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000503s ]
+ERR: 非法操作:showcart_files
+
+[ 2018-04-27T15:30:29+08:00 ] ::1 /dashboard/index.php/Home/Showcart/showcart_files/0.jpeg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000499s ]
+ERR: 非法操作:showcart_files
+
+[ 2018-04-27T15:30:31+08:00 ] ::1 /dashboard/index.php/home/login/index/url/ShowCart
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000964s ]
+
+[ 2018-04-27T15:31:39+08:00 ] ::1 /dashboard/index.php/home/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000409s ]
+
+[ 2018-04-27T15:31:39+08:00 ] ::1 /dashboard/index.php/Home/Register/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000548s ]
+
+[ 2018-04-27T15:32:43+08:00 ] ::1 /dashboard/index.php/Home/Register/verify?0.5370164262601236
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000372s ]
+
+[ 2018-04-27T15:32:45+08:00 ] ::1 /dashboard/index.php/Home/Register/verify?0.013527198626435588
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000408s ]
+
+[ 2018-04-27T15:32:55+08:00 ] ::1 /dashboard/index.php/Home/Register/insert
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000306s ]
+
+[ 2018-04-27T15:32:56+08:00 ] ::1 /dashboard/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000821s ]
+
+[ 2018-04-27T15:34:06+08:00 ] ::1 /dashboard/index.php/Home/Goods/index/gid/98
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000336s ]
+
+[ 2018-04-27T15:34:20+08:00 ] ::1 /dashboard/index.php/home/center
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000328s ]
+
+[ 2018-04-27T16:25:08+08:00 ] ::1 /dashboard/index.php/home/index/exitlogin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000343s ]
+
+[ 2018-04-27T16:25:09+08:00 ] ::1 /dashboard/index.php/Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+
+[ 2018-04-27T16:25:09+08:00 ] ::1 /dashboard/index.php/home/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000303s ]
+
+[ 2018-04-27T16:25:22+08:00 ] ::1 /dashboard/index.php/home/register
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000891s ]
+
+[ 2018-04-27T16:25:22+08:00 ] ::1 /dashboard/index.php/Home/Register/verify
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000413s ]
+
+[ 2018-04-27T16:29:21+08:00 ] ::1 /dashboard/index.php/Home/Goods/index/gid/125
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000440s ]
+

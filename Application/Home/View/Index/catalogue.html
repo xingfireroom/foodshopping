@@ -1,0 +1,34 @@
+<div class="mod_subcate_item" id="panel_{$data['cid']}" style="display: block;">
+    <div class="mod_subcate_main">
+        <volist name="cate" id="vo">
+            <dl>
+                <dt>{$vo['cname']}</dt>
+                <dd>
+                    <volist name="vo['child']" id="child">
+                        <if condition="$i%6 eq 0">
+                            <s class="mod_subcate_dotline"></s>                         
+                        </if>
+                            <a target="_blank" class="" href="__APP__/Home/search/index/cid/{$child['cid']}">{$child['cname']}</a>
+                    </volist>
+                </dd>
+            </dl>
+        </volist>
+        <div class="mod_subcate_channel">
+             <a target="_blank" class="mod_btn_arrow " href="__APP__/Home/search/index/cid/{$data['cid']}"><b>{$data['cname']}频道</b><i></i></a>
+        </div>
+    </div>
+    <div class="mod_subcate_side">
+        <div class="mod_subcate_side_hd">热门品牌</div>
+        <ul class="mod_subcate_side_brand">
+            <volist name="brand" id="bval">
+                <if condition="($bval['brandpic'] neq '') and ($i lt 7)">
+                    <li style="border:1px solid #EEE">
+                        <a href="" target="_blank" >
+                            <img src="__PUBLIC__/Uploads/{$bval['brandpic']}" >
+                        </a>
+                    </li>
+                </if>
+            </volist>
+        </ul>
+    </div>
+</div>

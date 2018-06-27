@@ -1,0 +1,25 @@
+<ul class="mod_minicart_list" id="j_minicart_list">
+    <volist name="info" id="vo">
+        <if condition="$vo['nums'] gt 0">
+            <li>
+                <div class="mod_goods mod_goods_w60">
+                    <div class="mod_goods_img">
+                        <a target="_blank" href=""><img src="__PUBLIC__/Goodsuploads/{$vo['gpic']}" alt="{$vo['gname']}" width="60" height="60"></a>
+                    </div>
+                    <div class="mod_goods_info">
+                        <p class="mod_goods_tit"><a target="_blank" href="__APP__/Home/Goods/index/gid/{$vo['gid']}">{$vo['gname']}</a></p>
+                        <p class="mod_goods_price"><span class="mod_price"><i>¥</i><span>{$vo['goldprice']}.00</span></span><b>x</b>{$vo['nums']}</p>
+                    </div>
+                </div>
+            </li>
+        </if>
+    </volist>
+</ul>
+<div class="mod_minicart_more" style="display:none">
+    <a target="_blank" href="">查看全部{$info['total']}件商品</a>
+</div>
+<div class="mod_minicart_ft" id="j_minicart_ft">
+    <p>共<span class="c_tx1" id="cartNum">{$info['total']}</span>件商品总计：<span class="mod_price"><i>¥</i><span id="cartPrice">{$info['totalprice']}.00</span></span></p>
+    <p>满49元免运费</p>
+    <a target="_blank" class="mod_btn_arrow" href="__APP__/Home/Showcart/index"><b>去购物车结算</b><i></i></a>
+</div>

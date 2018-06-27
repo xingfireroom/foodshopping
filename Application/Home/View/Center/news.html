@@ -1,0 +1,64 @@
+<extend name="Index:default" />
+<block name="header"><div class="ic_header"></block>
+<block name="nav"><div class="ic_nav" id="j_nav"></block>
+<block name="footer"><div class="ic_footer hide"></block>
+<block name="cate_css"><div class="mod_cate" id="category_container"></block>
+<block name="stylecss">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/center_style.css">
+</block>
+<block name="privatejs">
+	<script>
+	$("#category_container").hover(function(){
+		$(this).toggleClass("mod_cate_on");
+	});
+	$(".center_ul li a").hover(function(){
+		$(this).css("color","rgb(214,20,93)");	
+	},function(){
+		$(".center_ul li a").css("color","rgb(85,85,85)");
+	});
+</script>
+</block>
+<block name="content">
+<div class="center_main">
+		<div class="breadnav">
+			<span><a href="__APP__/home/index" style="color:rgb(8,92,155)">{$bread.0}</a></span>&nbsp;>&nbsp;<span><a href="__CONTROLLER__/index" style="color:rgb(8,92,155)">{$bread.1}</a>&nbsp;></span><span>&nbsp;{$bread.2}</span>
+		</div>
+		<div class="center_left">
+		<div class="center_classify">
+			<h1>信息管理<h1>
+		</div>
+			<ul class="center_ul">
+				<li style="background:rgb(49,101,176);"><a href="__CONTROLLER__/news" style="color:#ffffff;">新闻中心</a></li>
+				<li><a href="__CONTROLLER__/zhao">网站招聘</a></li>
+			</ul>
+		</div>
+		<div class="center_right">
+			<span class="center_indent"><h1>新闻中心</h1></span>
+			<div class="collect_goods">
+				<ul>
+					<li style="width: 10%">序号</li>
+					<li style="width: 25%">标题</li>
+					<li style="width: 50%">内容</li>
+					<li style="width: 15%">时间</li>
+				</ul>
+			</div>
+			<div class="collect_goods" style="background:#ffffff">
+				<table>
+					<foreach name="data" item="v" key="k">
+					<tr style="text-align: center;">
+						<td style="width:5%;border: 1px dashed gray">{$k+1}</td>
+						<td  style="width:25%;border: 1px dashed gray">{$v['title']}</td>
+						<td style="width:60%;border: 1px dashed gray">{$v['content']}</td>
+						<td style="width:10%;border: 1px dashed gray">{:date('Y-m-d H:i',$v['times'])}</td>
+					</tr>
+					</foreach>
+				</table>
+			</div>
+		</div>
+
+</div>
+</div>
+<div class="mod_backtop hide" id="j_backtop">
+            <a href="javascript:" title="回顶部" ytag="72300">回顶部</a>
+        </div>
+</block>

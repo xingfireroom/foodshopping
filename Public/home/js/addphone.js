@@ -1,0 +1,3 @@
+$(document).ready(function () {
+            $("body").append('<div id="addLianxi"><h4>QQ在线咨询</h4><p>客服1<span><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=549473150&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:549473150:51" alt="客服1" title="客服1"></a></span></p><p>客服2<span><a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1026822403&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:1026822403:51" alt="客服2" title="客服2"></a></span></p><h5>电话/微信号</h5><h4 class="lianxiPhone">15663731821</h4><h5>电话咨询</h5><h4 class="lianxiPhone">13504561828</h4></div>');
+            });

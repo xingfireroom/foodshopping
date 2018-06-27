@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册-我的易迅-易迅网</title>
+	<link rel="stylesheet" href="__PUBLIC__/home/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/login_style.css">
+</head>
+<body>
+    <!--[if IE]>
+     <style>
+        .inp_error_info{
+            line-height:30px;
+            height:30px;
+            margin-bottom:12px;
+        }
+        .inp_error_info span{
+            height:0px;
+        }
+        .inp_success_info span{
+            margin-top:15px;
+        }
+        .reg_right{
+            line-height:42px;
+        }
+         #checkboxs{
+            width:16px;
+            height:16px;
+            border:0px;
+         }
+     </style>
+     <![endif]-->
+
+    <!--注册的logo-->
+    <!--头部开始-->
+    <div style="background:#FFF;border-bottom:2px solid #05A;">
+        <div class="reg_head">
+            <img src="__PUBLIC__/home/images/logo_2013_v2.png" alt="三虾网">
+        </div>
+    </div>
+    
+    <div class="reg_center">
+        <!-- <div class="login_penguin">
+            <img src="__PUBLIC__/home/images/logo2.jpg">
+        </div> -->        
+        <!--登录表单-->
+        <div class="reg_login">
+            <div class="reg_title">
+                <span>三虾网用户注册</span>
+                <a href="__APP__/home/login"><img src="__PUBLIC__/home/images/qq125_24.jpg" alt=""></a><br />
+            </div>
+            <div class="reg_forms">
+                <div class="reg_left">
+                    <p>用户名</p>
+                    <p>密码</p>
+                    <p>确认密码</p>
+                    <p>邮箱</p>
+                    <p>验证码</p>
+                </div>
+                <div class="reg_input">
+                    <form action="__CONTROLLER__/insert" method="post" id="reg_form">
+                        <p><input type="text" name="uname" /></p>
+                        <p><input type="password" name="pwd" /></p>
+                        <p><input type="password" name="repwd" /></p>
+                        <p><input type="text" name="email" /></p>
+                        <p><input type="text" name="vcode" /></p>
+                        <p>
+                            <img src="__CONTROLLER__/verify" id="imgcode" width="80" height="40" id="code" onclick="this.src=this.src+'?'+Math.random()">
+                            <span style="color:rgb(51,51,51)">看不清?<a href="javascript:void(0)" class="code_a" id="changepic" style="color:rgb(0,85,170);"><br />换一张</a></span>
+                        </p>
+                        <p>
+                            <input type="checkbox" checked id="checkboxs">
+                         &nbsp;我同意<a href="__CONTROLLER__/regAgreement">《三虾网用户协议》</a>
+                        </p>
+                        <p><input type="submit" value="注册" id="reg_sub"/></p>
+                    </form>
+                </div>
+                <div class="reg_right">
+                    <p>请输入用户名！</p>
+                    <p>请输入密码！</p>
+                    <p>请输入确认密码！</p>
+                    <p>请输入邮箱以便激活账户！</p>
+                    <p>请输入验证码！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login_foot">
+		易迅用户注册协议易迅用户注册协议易迅用户注册协议易迅用户注册协议易迅用户注册协议<br />
+		易迅用户注册协议易迅用户注册协议易迅用户注册协议易迅用户注册协议易迅用户注册协议易迅用户注册协议易迅用户注册协议
+	</div>
+</body>
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/home/js/common.js"></script>
+<script type="text/javascript" src="__PUBLIC__/home/js/reg.js"></script>
+<script>
+      //验证码 ：换图（换一张）
+  $(function(){
+      $("#changepic"). click(function(){
+        $("#imgcode").attr("src","__CONTROLLER__/verify"+'?'+Math.random());
+      })
+  })
+
+</script>
+</html>

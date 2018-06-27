@@ -1,0 +1,140 @@
+<extend name="Index:default" />
+<block name="header"><div class="ic_header"></block>
+<block name="nav"><div class="ic_nav" id="j_nav"></block>
+<block name="footer"><div class="ic_footer"></block>
+<block name="cate_css"><div class="mod_cate" id="category_container"></block>
+<block name="stylecss">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/center_style.css">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/comments.css">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/gb6.css">
+	<link rel="stylesheet" href="__PUBLIC__/home/css/style.css">
+</block>
+<block name="privatejs">
+	<script type="text/javascript">
+		$(".grade li").on('click',function(){
+			$(".grade li").removeClass('strong');
+			$(".grade li span").addClass('no_star');
+			$(this).addClass('strong');
+			$(this).children('span').removeClass('no_star');
+			$(this).prevAll().children('span').removeClass('no_star');
+		})
+		$('.btn_common').click(function(){
+			var gid=$("#gid").val();
+			var integral = $('.grade .strong').children().eq(1).html().substr(0,1);
+			var content = $('.textarea_long').val();
+			var id = $("#did").val();
+			$.ajax({
+				url:'__CONTROLLER__/submitComment/id/'+id+'',
+				type:'post',
+				data:{gid:gid,integral:integral,content:content},
+				success:function(){
+					window.location="__APP__/home/center/index";
+				}
+			});
+		});
+	</script>
+</block>
+<block name="content">
+<div class="main mod_apply id_discuss" id="container">
+	<div class="crumbs">
+		<a href="http://searchex.yixun.com/html?path=705836&amp;area=2001">数码配件</a> &gt; <a href="http://searchex.yixun.com/html?path=708722&amp;area=2001">移动电源</a> &gt; 发表体验心得
+	</div>
+	<!-- S 主体内容 -->
+	<div class="content">
+		<!-- S 商品性能 -->
+		<!-- E 商品性能 -->
+		<!-- S 商品评分 -->
+		<input id="gid" type="hidden" value="{$data.gid}">
+		<input id="did" type="hidden" value="{$did}">
+		<div id="review_grade_box" class="mod_comm id_grade">
+			<div class="hd">
+				<h3>商品评分</h3>
+			</div>
+			<div class="bd">
+				<p class="tip">请直接点击相应的星级进行评分。</p>
+				<ul class="grade">
+					<li class="">
+						<span class="star no_star"></span>
+						<p class="mark">1分</p>
+						<p class="c">非常不满意</p>
+					</li>
+					<li class="">
+						<span class="star no_star"></span>
+						<p class="mark">2分</p>
+						<p class="c">不满意</p>
+					</li>
+					<li class="">
+						<span class="star no_star"></span>
+						<p class="mark">3分</p>
+						<p class="c">一般</p>
+					</li>
+					<li class="">
+						<span class="star no_star"></span>
+						<p class="mark">4分</p>
+						<p class="c">满意</p>
+					</li>
+					<li class="">
+						<span class="star no_star"></span>
+						<p class="mark">5分</p>
+						<p class="c">非常满意</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- E 商品评分 -->
+		<!-- S 评论内容 -->
+		<div id="review_experience_box" class="mod_comm id_comment">
+			<div class="hd">
+				<h3 class="tit">评论内容</h3>
+			</div>
+			<div class="bd">
+				<textarea name="content" class="textarea_long nor"></textarea>
+				<p class="para_inb para_warn" style="display: none;">
+					<b class="icon icon_msg0 icon_msg0_warn"></b><span class="para_tit">false</span>
+				</p>
+				<p t="tipArea" class="g">
+					<span class="wrap_btn">
+						<a href="javascript:;" class="btn_common">发表</a>
+					</span>
+					<label class="todo_link">
+						<input type="checkbox" checked="checked" value="1" t="accept_rule" class="c">我接受商城网的评论规则>
+					</label>
+				</p>
+			</div>
+		</div>
+		<!-- E 评论内容 -->
+	</div>
+	<!-- E 主体内容 -->
+	<!-- S 右边侧栏内容 -->
+	<div class="sidebar">
+		<div class="inner">
+			<div class="goods">
+				<div class="wrap_img">
+					<a href="__APP__/home/goods/index/gid/{$data.gid}">
+						<img height="120px" width="120px" alt="" src="__PUBLIC__/Goodsuploads/{$data.gpic|explode='/',###|implode='/120_',###}">
+					</a>
+				</div>
+				<div class="info">
+					<p class="name">
+						<a href="__APP__/home/goods/index/gid/{$data.gid}">{$data.gname}</a>
+					</p>
+					<p class="com">
+						顾客评价：
+						<span class="icon_star">
+							<b style="width: {$nums}%;"></b>
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="intr">
+			<h4>评论说明</h4>
+			<p>1、评论是用户提出对商品的质量、使用情况、用后心得体验等等和商品本身息息相关的内容，而不是针对支付，配送等购物过程；</p>
+			<p>2、在您收到商品后的48小时到3个月之内方可发表评论，每位顾客只能对该商品发表一条评论；</p>
+			<p>3、只有购买过此商品的用户才能对其发表商品评论；</p>
+			<p class="todo_link">4、发表评论，将得到一定数量的积分奖励，10个积分=1元，详细规则请查看商城网</p>
+		</div>
+	</div>
+	<!-- E 右边侧栏内容 -->
+</div>
+</block>

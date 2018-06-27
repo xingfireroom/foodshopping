@@ -1,0 +1,196 @@
+[ 2018-02-12T14:17:16+08:00 ] ::1 /plastic/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000649s ]
+
+[ 2018-02-12T14:21:08+08:00 ] ::1 /plastic/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000419s ]
+
+[ 2018-02-12T14:25:18+08:00 ] ::1 /plastic/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000425s ]
+
+[ 2018-02-12T14:26:27+08:00 ] ::1 /plastic/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000366s ]
+
+[ 2018-02-12T14:26:28+08:00 ] ::1 /plastic/index.php/Home/Showcart/viewNums
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000463s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000710s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000766s ]
+SQL: SHOW COLUMNS FROM `food_goods` [ RunTime:0.066075s ]
+NOTIC: [8] Undefined index: cart D:\phpStudy\WWW\plastic\Application\Home\Controller\ShowcartController.class.php 第 234 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000842s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000890s ]
+
+[ 2018-02-12T14:26:29+08:00 ] ::1 /plastic/index.php/Home/Index/viewCate
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003198s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000729s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000784s ]
+SQL: SHOW COLUMNS FROM `food_class_view` [ RunTime:0.052133s ]
+ERR: 1146:Table 'bdm256143291_db.food_class_view' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `food_class_view`
+SQL: SHOW COLUMNS FROM `food_classify` [ RunTime:0.061893s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `parentid` = 0 ) ORDER BY cid asc  [ RunTime:0.106418s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 66 ) LIMIT 1   [ RunTime:0.091453s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-66%' ) ORDER BY bpath asc  [ RunTime:0.106227s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 261 ) LIMIT 1   [ RunTime:0.094752s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-261%' ) ORDER BY bpath asc  [ RunTime:0.086958s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 290 ) LIMIT 1   [ RunTime:0.098272s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-290%' ) ORDER BY bpath asc  [ RunTime:0.115565s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cid` = 326 ) LIMIT 1   [ RunTime:0.111201s ]
+SQL: SELECT `cid`,`cname`,concat(cpath,'-',cid) as bpath FROM `food_classify` WHERE ( `cpath` LIKE '0-326%' ) ORDER BY bpath asc  [ RunTime:0.109785s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000031s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000069s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006316s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006369s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000505s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000539s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000755s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000808s ]
+
+[ 2018-02-12T14:26:30+08:00 ] ::1 /plastic/index.php/home/Index/nav
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000569s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000812s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000876s ]
+SQL: SHOW COLUMNS FROM `food_nav` [ RunTime:0.055108s ]
+SQL: SELECT * FROM `food_nav` ORDER BY nsort asc  [ RunTime:0.085684s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001343s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001405s ]
+
+[ 2018-02-12T14:28:00+08:00 ] ::1 /plastic/index.php/Admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000363s ]
+
+[ 2018-02-12T14:42:43+08:00 ] ::1 /plastic/index.php/Admin/Websetting/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000048s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001906s ]
+
+[ 2018-02-12T14:42:45+08:00 ] ::1 /plastic/index.php/Admin/Indexset/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000339s ]
+
+[ 2018-02-12T14:42:46+08:00 ] ::1 /plastic/index.php/Admin/Indexset/loadData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000371s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000643s ]
+SQL: SHOW COLUMNS FROM `food_floorads` [ RunTime:0.026749s ]
+SQL: SELECT * FROM `food_floorads` WHERE ( `frid` = '37' ) ORDER BY fadid desc  [ RunTime:0.026940s ]
+NOTIC: [8] Use of undefined constant ads - assumed 'ads' D:\phpStudy\WWW\plastic\Application\Admin\Controller\IndexsetController.class.php 第 83 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000035s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000081s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037867s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037948s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000596s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000635s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000909s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000950s ]
+
+[ 2018-02-12T14:42:46+08:00 ] ::1 /plastic/index.php/Admin/Indexset/loadText
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000363s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000603s ]
+SQL: SHOW COLUMNS FROM `food_floortext` [ RunTime:0.027884s ]
+SQL: SELECT * FROM `food_floortext` WHERE ( `frid` = '37' ) ORDER BY ftid desc  [ RunTime:0.032348s ]
+NOTIC: [8] Use of undefined constant ads - assumed 'ads' D:\phpStudy\WWW\plastic\Application\Admin\Controller\IndexsetController.class.php 第 92 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000022s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000056s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005804s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005858s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000653s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000806s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000844s ]
+
+[ 2018-02-12T14:45:54+08:00 ] ::1 /plastic/index.php/Admin/Indexset/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000415s ]
+
+[ 2018-02-12T14:45:55+08:00 ] ::1 /plastic/index.php/Admin/Indexset/loadData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000472s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000664s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000718s ]
+SQL: SHOW COLUMNS FROM `food_floorads` [ RunTime:0.028967s ]
+SQL: SELECT * FROM `food_floorads` WHERE ( `frid` = '37' ) ORDER BY fadid desc  [ RunTime:0.026675s ]
+NOTIC: [8] Use of undefined constant ads - assumed 'ads' D:\phpStudy\WWW\plastic\Application\Admin\Controller\IndexsetController.class.php 第 83 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000075s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006097s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006146s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000401s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000429s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000588s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000616s ]
+
+[ 2018-02-12T14:45:55+08:00 ] ::1 /plastic/index.php/Admin/Indexset/loadText
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000452s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000832s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000897s ]
+SQL: SHOW COLUMNS FROM `food_floortext` [ RunTime:0.034161s ]
+SQL: SELECT * FROM `food_floortext` WHERE ( `frid` = '37' ) ORDER BY ftid desc  [ RunTime:0.026160s ]
+NOTIC: [8] Use of undefined constant ads - assumed 'ads' D:\phpStudy\WWW\plastic\Application\Admin\Controller\IndexsetController.class.php 第 92 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000083s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006319s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006354s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000381s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000538s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000566s ]
+
+[ 2018-02-12T14:46:07+08:00 ] ::1 /plastic/index.php/Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000361s ]
+
